@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'photo_url',
+        'subscription',
     ];
 
     /**
@@ -45,4 +47,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonial::class);
+    }
+
+    public function courses() {
+        $this->belongsToMany(Course::class, 'course_user');
+    }
+
+
 }
