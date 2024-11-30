@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background: #ecf0f1;
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: #2c3e50;
+}
