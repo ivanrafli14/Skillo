@@ -1,17 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Homepage')
-
 @section('content')
   <div class="w-full pt-[75px]">
-    
     <div
       class="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-[80px] px-[calc(3.5vw+5px)]">
-      <form action="{{route('register.submit')}}"
+      <form action="{{ route('register.submit') }}"
         class="flex w-[540px] flex-shrink-0 flex-col rounded-[10px] p-10"
         method="POST">
         @csrf
-        <div class="mb-10 flex flex-col gap-5">
+        <div class="mb-8 flex flex-col gap-5">
           <h1 class="m-0 text-center text-[32px] font-semibold">
             Daftar
           </h1>
@@ -19,56 +16,51 @@
             Mulai belajar dengan membuat akun sekarang
           </h2>
         </div>
-        <label class="mb-5 text-[16px] font-medium">Nama Lengkap</label>
+        <label class="mb-3 text-[16px] font-medium">Nama Lengkap</label>
         <input
-          class="mb-5 flex items-center gap-2 rounded-[8px] border border-line bg-third px-[14px] py-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-none"
-          placeholder="Masukkan Nama Lengkap"
-          name="full_name" 
-          value="{{old('full_name')}}"
-          />
+          class="{{ $errors->has('full_name') ? 'border-red-500' : '' }} flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          placeholder="Masukkan Nama Lengkap" name="full_name"
+          value="{{ old('full_name') }}" />
         @error('full_name')
-            <span class="text-red-500">{{ $message }}</span>
+          <span class="text-red-500">{{ $message }}</span>
         @enderror
-
-        <label class="mb-5 text-[16px] font-medium">Email</label>
+        <label class="mt-4 text-[16px] font-medium">Email</label>
         <input
-          class="mb-5 flex items-center gap-2 rounded-[8px] border border-line bg-third px-[14px] py-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-none"
-          placeholder="Masukkan Email"
-          name="email"
-          value="{{old('email')}}"/>
+          class="{{ $errors->has('email') ? 'border-red-500' : '' }} mt-3 flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          placeholder="Masukkan Email" name="email" type="email"
+          value="{{ old('email') }}" />
         @error('email')
           <span class="text-red-500">{{ $message }}</span>
         @enderror
-        
-        <label class="mb-5 text-[16px] font-medium">Kata Sandi</label>
+        <label class="mt-4 text-[16px] font-medium">Kata Sandi</label>
         <div
-          class="mb-5 flex items-center justify-between gap-2 rounded-[8px] border border-line bg-third px-3 py-[10px] text-[16px] text-neutral">
-          <input type="password"
-            class="flex-grow border-none bg-transparent text-[16px] outline-none"
-            placeholder="Masukkan Kata Sandi" 
-            name="password"
-            />
-          <img class="w-5 pt-[1.5px]" src="{{ asset('assets/show.png') }}"
-            alt="Tampilkan Kata Sandi" />
-          @error('password')
-            <span class="text-red-500">{{ $message }}</span>
-          @enderror
+          class="{{ $errors->has('password') ? 'border-red-500' : '' }} error-removed mt-3 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
+          <input id="password" type="password"
+            class="flex-grow rounded-[8px] bg-third p-3 text-[16px] outline-primary"
+            placeholder="Masukkan Kata Sandi" name="password" />
+          <div class="px-3">
+            <img class="w-5 cursor-pointer" src="{{ asset('assets/show.png') }}"
+              id="toggle-password" alt="Tampilkan Kata Sandi" />
+          </div>
         </div>
-        <label class="mb-5 text-[16px] font-medium">Konfirmasi Kata Sandi</label>
+        @error('password')
+          <span class="text-red-500">{{ $message }}</span>
+        @enderror
+        <label class="mt-4 text-[16px] font-medium">Konfirmasi Kata Sandi</label>
         <div
-          class="mb-5 flex items-center justify-between gap-2 rounded-[8px] border border-line bg-third px-3 py-[10px] text-[16px] text-neutral">
-          <input type="password"
-            class="flex-grow border-none bg-transparent text-[16px] outline-none"
-            placeholder="Masukkan Kata Sandi"
-            name="password_confirmation"/>
-          <img class="w-5 pt-[1.5px]" src="{{ asset('assets/show.png') }}"
-            alt="Tampilkan Kata Sandi" />
-
+          class="{{ $errors->has('password_confirmation') ? 'border-red-500' : '' }} error-removed mt-3 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
+          <input id="passwordConfirmation" type="password"
+            class="flex-grow rounded-[8px] bg-third p-3 text-[16px] outline-primary"
+            placeholder="Masukkan Kata Sandi" name="password_confirmation" />
+          <div class="px-3">
+            <img class="w-5 cursor-pointer" id="toggle-passwordConfirmation"
+              src="{{ asset('assets/show.png') }}" alt="Tampilkan Kata Sandi" />
+          </div>
         </div>
-          @error('password_confirmation')
-            <span class="text-red-500">{{ $message }}</span>
-          @enderror
-        <div class="mb-5 flex items-center justify-center gap-2">
+        @error('password_confirmation')
+          <span class="text-red-500">{{ $message }}</span>
+        @enderror
+        <div class="my-4 flex items-center justify-center gap-2">
           <input class="w-6 scale-[1.5]" type="checkbox" required />
           <label class="flex-1 pt-[3px] text-[16px] text-neutral">
             Saya setuju dengan
@@ -98,7 +90,7 @@
         <p
           class="flex items-center justify-center gap-[6px] text-center text-[16px] text-secondary">
           Sudah punya akun?
-          <a href="{{route('login.form')}}"
+          <a href="{{ route('login.form') }}"
             class="flex items-center text-secondary transition-colors hover:text-accent">
             Masuk
             <img src="{{ asset('assets/arrow.png') }}" alt="login"
@@ -108,4 +100,40 @@
       </form>
     </div>
   </div>
+  <script>
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(function(input) {
+      input.addEventListener("focus", function() {
+        this.classList.remove("border-red-500");
+        const parent = this.closest(
+        ".error-removed");
+        if (parent) {
+          parent.classList.remove(
+          "border-red-500");
+        }
+      });
+    });
+    const togglePassword = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    togglePassword.addEventListener('click', function() {
+      const type = passwordInput.type === 'password' ? 'text' :
+        'password';
+      passwordInput.type = type;
+      this.src = type === 'password' ?
+        '{{ asset('assets/show.png') }}' :
+        '{{ asset('assets/hide.png') }}';
+    });
+    const togglePasswordConfirmation = document.getElementById(
+      'toggle-passwordConfirmation');
+    const passwordConfirmation = document.getElementById(
+      'passwordConfirmation');
+    togglePasswordConfirmation.addEventListener('click', function() {
+      const type = passwordConfirmation.type === 'password' ?
+        'text' : 'password';
+      passwordConfirmation.type = type;
+      this.src = type === 'password' ?
+        '{{ asset('assets/show.png') }}' :
+        '{{ asset('assets/hide.png') }}';
+    });
+  </script>
 @endsection

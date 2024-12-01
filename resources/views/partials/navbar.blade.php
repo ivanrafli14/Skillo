@@ -1,4 +1,4 @@
-<nav class="fixed top-0 z-50 w-full bg-white shadow transition-all duration-100">
+<nav class="fixed top-0 z-10 w-full bg-white shadow transition-all duration-100">
   <div
     class="mx-auto flex max-w-[1400px] items-center justify-between px-[calc(3.5vw+5px)] py-4">
     <!-- Logo -->
@@ -37,7 +37,6 @@
       <a href="{{route('login.form')}}"
         class="rounded-md bg-primary px-4 py-2 text-sm text-white">Masuk</a>
     </div>
-
     {{-- <!-- Dashboard Menu -->
     <div class="hidden items-center gap-3 lg:flex">
       <img src="{{ asset('assets/profile.png') }}" alt="profile" class="w-8 h-8 rounded-full" />

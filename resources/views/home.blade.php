@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Homepage')
-
 @section('content')
   <section class="w-full pt-[140px]">
     <div

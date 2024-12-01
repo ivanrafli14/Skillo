@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>@yield('title', '')</title>
-  <link rel="icon" type="image/svg+xml" href="" />
+  <title>Skillo</title>
+  <link rel="icon" type="image/svg+xml"
+    href="{{ asset('assets/brand-logo.png') }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,14 +17,12 @@
 </head>
 
 <body>
-  <!-- Navbar -->
   @include('partials.navbar')
-  <!-- Main Content -->
   <main>
     @yield('content')
   </main>
-  <!-- Footer -->
   @include('partials.footer')
+  
 </body>
 
 </html>

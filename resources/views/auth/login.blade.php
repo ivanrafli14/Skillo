@@ -10,14 +10,24 @@
     </script>
   @endif
 
+  @if (session('message'))
+    <div id="alert"
+      class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-green-200 px-3 py-3.5 text-green-800 shadow-md">
+      <img src="{{ asset('assets/check.png') }}" alt="check" class="mr-4 w-5">
+      <p>You have been registered successfully</p>
+      <div id="progress-bar"
+        class="absolute bottom-0 left-0 h-1 w-full rounded-b-lg bg-green-500">
+      </div>
+    </div>
+  @endif
+
   <div class="w-full pt-[75px]">
     <div
       class="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-[80px] px-[calc(3.5vw+5px)]">
-      <form action="{{route('login.submit')}}" method="POST"
+      <form action="{{ route('login.submit') }}" method="POST"
         class="flex w-[540px] flex-shrink-0 flex-col rounded-[10px] p-10">
-
         @csrf
-        <div class="mb-10 flex flex-col gap-5">
+        <div class="mb-8 flex flex-col gap-5">
           <h1 class="m-0 text-center text-[32px] font-semibold">
             Masuk
           </h1>
@@ -25,20 +35,20 @@
             Selamat datang kembali, mari belajar bersama Skillo
           </h2>
         </div>
-        <label class="mb-5 text-[16px] font-medium">Email</label>
+        <label class="mb-3 text-[16px] font-medium">Email</label>
         <input
-          class="mb-5 flex items-center gap-2 rounded-[8px] border border-line bg-third px-[14px] py-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-none"
-          placeholder="Masukkan Email"
-          name="email"/>
-        <label class="mb-5 text-[16px] font-medium">Kata Sandi</label>
+          class="mb-4 flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          placeholder="Masukkan Email" name="email" />
+        <label class="mb-3 text-[16px] font-medium">Kata Sandi</label>
         <div
-          class="mb-5 flex items-center justify-between gap-2 rounded-[8px] border border-line bg-third px-3 py-[10px] text-[16px] text-neutral">
-          <input type="password"
-            class="flex-grow border-none bg-transparent text-[16px] outline-none"
-            placeholder="Masukkan Kata Sandi"
-            name="password"/>
-          <img class="w-5 pt-[1.5px]" src="{{ asset('assets/show.png') }}"
-            alt="Tampilkan Kata Sandi"/>
+          class="mb-4 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
+          <input id="password" type="password"
+            class="flex-grow rounded-[8px] bg-third p-3 text-[16px] outline-primary"
+            placeholder="Masukkan Kata Sandi" name="password" />
+          <div class="px-3">
+            <img class="w-5 cursor-pointer" src="{{ asset('assets/show.png') }}"
+              id="toggle-password" alt="Tampilkan Kata Sandi" />
+          </div>
         </div>
         <button
           class="mb-6 rounded-[8px] bg-primary px-5 py-3 text-center text-[14px] font-medium text-white transition-colors hover:bg-accent"
@@ -59,7 +69,7 @@
         <p
           class="flex items-center justify-center gap-[6px] text-center text-[16px] text-secondary">
           Belum punya akun?
-          <a href="{{route('register.form')}}"
+          <a href="{{ route('register.form') }}"
             class="flex items-center text-secondary transition-colors hover:text-accent">
             Daftar
             <img src="{{ asset('assets/arrow.png') }}" alt="login"
@@ -69,4 +79,30 @@
       </form>
     </div>
   </div>
+
+  <script>
+    const togglePassword = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    togglePassword.addEventListener('click', function() {
+      const type = passwordInput.type === 'password' ? 'text' :
+        'password';
+      passwordInput.type = type;
+      this.src = type === 'password' ?
+        '{{ asset('assets/show.png') }}' :
+        '{{ asset('assets/hide.png') }}';
+    });
+
+    const alert = document.getElementById("alert");
+    const progressBar = document.getElementById("progress-bar");
+    const duration = 5000;
+    progressBar.style.transition = `width ${duration}ms linear`;
+    setTimeout(() => {
+      progressBar.style.width = "0%";
+    }, 10);
+    setTimeout(() => {
+      alert.style.transition = "opacity 500ms ease";
+      alert.style.opacity = "0";
+      setTimeout(() => alert.remove(), 500);
+    }, duration);
+  </script>
 @endsection
