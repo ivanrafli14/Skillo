@@ -5,7 +5,7 @@
     <div id="alert"
       class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-green-200 px-3 py-3.5 text-green-800 shadow-md">
       <img src="{{ asset('assets/check.png') }}" alt="check" class="mr-4 w-5">
-      <p>Logged in successfully</p>
+      <p>{{session('success')}}</p>
       <div id="progress-bar"
         class="absolute bottom-0 left-0 h-1 w-full rounded-b-lg bg-green-500">
       </div>
@@ -18,11 +18,11 @@
       <div class="dashboard__profile flex items-center justify-between gap-6 pb-8">
         <div>
           <img class="dashboard__profile-picture w-[90px] rounded-full"
-            src="{{ asset('assets/johndoe.webp') }}" alt="John Doe" />
+            src="{{ auth()->user()->photo_url ? asset(auth()->user()->photo_url) : asset('assets/johndoe.webp') }}" alt="John Doe" />
         </div>
         <div class="dashboard__profile-wrap mr-auto flex flex-col gap-2.5">
           <h1 class="dashboard__greetings m-0 text-2xl font-semibold">
-            Selamat Datang, John Doe
+            Selamat Datang, {{auth()->user()->name}}
           </h1>
           <p
             class="dashboard__text m-0 text-base font-normal leading-[150%] text-neutral">

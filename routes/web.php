@@ -13,6 +13,8 @@ Route::post('/register', [AuthController::class, 'registerSubmit'])->name('regis
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'loginSubmit'])->name('login.submit');
 
+Route::post('/logout', [AuthController::class, 'logoutSubmit'])->name('logut.submit');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->name('dashboard')->middleware('auth');
