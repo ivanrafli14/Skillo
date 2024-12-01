@@ -32,10 +32,22 @@
     </div>
     <!-- Secondary Menu -->
     <div class="hidden items-center gap-6 lg:flex">
-      <a href="{{route('register.form')}}"
-        class="rounded-md border border-gray-800 px-4 py-2 text-sm text-gray-800">Daftar</a>
-      <a href="{{route('login.form')}}"
-        class="rounded-md bg-primary px-4 py-2 text-sm text-white">Masuk</a>
+    @auth
+        <h1>Halo, {{auth()->user()->name}}</h1>
+        <form action="{{ route('logut.submit') }}" method="POST" class="inline">
+            @csrf
+            <button type="submit" 
+                    class="rounded-md bg-primary px-4 py-2 text-sm text-white">
+                Logout
+            </button>
+        </form>
+    @else
+        <!-- Register and Login Links -->
+        <a href="{{ route('register.form') }}"
+          class="rounded-md border border-gray-800 px-4 py-2 text-sm text-gray-800">Daftar</a>
+        <a href="{{ route('login.form') }}"
+          class="rounded-md bg-primary px-4 py-2 text-sm text-white">Masuk</a>
+    @endauth
     </div>
     {{-- <!-- Dashboard Menu -->
     <div class="hidden items-center gap-3 lg:flex">

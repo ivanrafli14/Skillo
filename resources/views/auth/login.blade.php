@@ -4,21 +4,29 @@
 
 @section('content')
 
-  @if (session('error'))
-    <script>
-      alert("{{ session('error') }}");
-    </script>
-  @endif
 
   @if (session('message'))
     <div id="alert"
       class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-green-200 px-3 py-3.5 text-green-800 shadow-md">
       <img src="{{ asset('assets/check.png') }}" alt="check" class="mr-4 w-5">
-      <p>You have been registered successfully</p>
+      <p>{{session('message')}}</p>
       <div id="progress-bar"
         class="absolute bottom-0 left-0 h-1 w-full rounded-b-lg bg-green-500">
       </div>
     </div>
+
+  @endif
+
+  @if (session('error'))
+    <div id="alert"
+      class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-red-200 px-3 py-3.5 text-red-800 shadow-md">
+      <img src="{{ asset('assets/check.png') }}" alt="check" class="mr-4 w-5">
+      <p>{{session('error')}}</p>
+      <div id="progress-bar"
+        class="absolute bottom-0 left-0 h-1 w-full rounded-b-lg bg-red-500">
+      </div>
+    </div>
+
   @endif
 
   <div class="w-full pt-[75px]">
@@ -37,11 +45,15 @@
         </div>
         <label class="mb-3 text-[16px] font-medium">Email</label>
         <input
-          class="mb-4 flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          class="{{ $errors->has('email') ? 'border-red-500' : '' }} mb-2 flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
           placeholder="Masukkan Email" name="email" />
-        <label class="mb-3 text-[16px] font-medium">Kata Sandi</label>
+        @error('email')
+          <span class="text-red-500">{{ $message }}</span>
+        @enderror
+
+        <label class="mt-3 mb-3 text-[16px] font-medium">Kata Sandi</label>
         <div
-          class="mb-4 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
+          class="{{ $errors->has('password') ? 'border-red-500' : '' }} mb-4 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
           <input id="password" type="password"
             class="flex-grow rounded-[8px] bg-third p-3 text-[16px] outline-primary"
             placeholder="Masukkan Kata Sandi" name="password" />
@@ -50,8 +62,11 @@
               id="toggle-password" alt="Tampilkan Kata Sandi" />
           </div>
         </div>
+        @error('password')
+          <span class="text-red-500">{{ $message }}</span>
+        @enderror
         <button
-          class="mb-6 rounded-[8px] bg-primary px-5 py-3 text-center text-[14px] font-medium text-white transition-colors hover:bg-accent"
+          class="mt-5 mb-6 rounded-[8px] bg-primary px-5 py-3 text-center text-[14px] font-medium text-white transition-colors hover:bg-accent"
           type="submit">
           Masuk
         </button>
