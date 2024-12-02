@@ -12,7 +12,7 @@
         <a href="/"
           class="text-sm text-gray-800 transition hover:text-blue-600">Home</a>
         <a href="/course"
-          class="text-sm text-gray-800 transition hover:text-blue-600">Kelas</a>
+          class="text-sm text-gray-800 transition hover:text-blue-600">Kursus</a>
         <a href="/pricing"
           class="text-sm text-gray-800 transition hover:text-blue-600">Langganan</a>
         <div class="group relative">
@@ -36,7 +36,7 @@
         <h1>Halo, {{auth()->user()->name}}</h1>
         <form action="{{ route('logut.submit') }}" method="POST" class="inline">
             @csrf
-            <button type="submit" 
+            <button type="submit"
                     class="rounded-md bg-primary px-4 py-2 text-sm text-white">
                 Logout
             </button>
@@ -71,7 +71,7 @@
   <!-- Mobile Menu -->
   <div class="absolute top-0 hidden h-screen w-full flex-col bg-white px-8 pt-28 lg:hidden">
     <a href="/" class="mb-4 text-sm text-gray-800">Home</a>
-    <a href="/course" class="mb-4 text-sm text-gray-800">Kelas</a>
+    <a href="/course" class="mb-4 text-sm text-gray-800">Kursus</a>
     <a href="/pricing" class="mb-4 text-sm text-gray-800">Langganan</a>
     <a href="/other" class="mb-4 text-sm text-gray-800">Lainnya</a>
     <a href="/register" class="mb-4 rounded-md border border-gray-800 px-4 py-2 text-sm text-gray-800">Daftar</a>
