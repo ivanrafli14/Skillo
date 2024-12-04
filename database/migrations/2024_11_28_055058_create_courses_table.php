@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('sylabus');
             $table->string('video_url');
+            $table->string('thumbnail_url');
+            $table->string('category');
         });
     }
 

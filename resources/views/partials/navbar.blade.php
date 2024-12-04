@@ -11,7 +11,7 @@
       <div class="hidden items-center gap-6 lg:flex">
         <a href="/"
           class="text-sm text-gray-800 transition hover:text-blue-600">Home</a>
-        <a href="/course"
+        <a href="/courses"
           class="text-sm text-gray-800 transition hover:text-blue-600">Kursus</a>
         <a href="/pricing"
           class="text-sm text-gray-800 transition hover:text-blue-600">Langganan</a>
@@ -34,7 +34,7 @@
     <div class="hidden items-center gap-6 lg:flex">
     @auth
         <h1>Halo, {{auth()->user()->name}}</h1>
-        <form action="{{ route('logut.submit') }}" method="POST" class="inline">
+        <form action="{{ route('logout.submit') }}" method="POST" class="inline">
             @csrf
             <button type="submit"
                     class="rounded-md bg-primary px-4 py-2 text-sm text-white">
