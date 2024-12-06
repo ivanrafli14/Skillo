@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/course-detail', function () {
+  return view('course-detail');
+});
+
 Route::get('/courses',[CourseController::class, 'index'])->name('courses');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
