@@ -14,8 +14,12 @@ class Course extends Model
         'video_url',
         'user_id',
         'thumbnail_url',
-        'category',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'course_category');
+    }
 
     public function users()
     {

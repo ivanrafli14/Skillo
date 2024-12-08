@@ -5,21 +5,16 @@
     <div class="mx-auto flex max-w-[1280px] flex-col px-[calc(3.5vw+5px)]">
       <div class="flex">
         <div class="shrink">
-          <img src="./assets/go.webp" alt="Course Thumbnail"
+          <img src="{{$course->thumbnail_url}}" alt="Course Thumbnail"
             class="w-full max-w-[640px] rounded-lg" />
         </div>
         <div
           class="ml-8 flex max-h-[400px] w-1/2 grow flex-col justify-around gap-1">
           <div class="flex gap-2">
             <span
-              class="rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-600">Data
-              Analysis</span>
-            <span
-              class="rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-600">Programming</span>
+              class="rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-600">{{$course->categories[0]->name ?? 'No catogory'}}</span>
           </div>
-          <h3 class="text-2xl font-bold text-gray-800">Menguasai Fundamental
-            Python
-            untuk Remote Worker Indonesia</h3>
+          <h3 class="text-2xl font-bold text-gray-800">{{$course->name}}</h3>
           <div class="flex flex-col gap-1">
             <div class="flex items-center gap-1">
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -44,7 +39,7 @@
                   d="M8 9a3 3 0 100-6 3 3 0 000 6zM12 10a3 3 0 100-6 3 3 0 000 6zM10 18a3 3 0 100-6 3 3 0 000 6z">
                 </path>
               </svg>
-              <span class="">40 Jam Belajar</span>
+              <span class="">{{ $course->total_duration}} menit Belajar</span>
             </div>
             <div class="flex items-center gap-2 text-gray-600">
               <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -52,7 +47,7 @@
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm-2.83-8.46a3 3 0 014.24-4.24l2.12 2.12a3 3 0 01-4.24 4.24l-2.12-2.12zm4.24 1.41a3 3 0 01-4.24 4.24l-2.12-2.12a3 3 0 014.24-4.24l2.12 2.12z"
                   clip-rule="evenodd"></path>
               </svg>
-              <span class="">1523 sudah terdaftar</span>
+              <span class="">{{ $course->total_user }} peserta</span>
             </div>
           </div>
           <button
@@ -80,8 +75,7 @@
       <div id="content" class="mt-4 rounded-lg bg-white p-6 shadow-md">
         <div class="content-item" id="deskripsi">
           <h2 class="text-lg font-bold">Deskripsi</h2>
-          <p class="mt-2 text-gray-700">Ini adalah deskripsi lengkap dari kursus
-            atau materi yang tersedia.</p>
+          <p class="mt-2 text-gray-700">{{$course->description}}</p>
         </div>
         <div class="content-item hidden" id="proyek">
           <h2 class="text-lg font-bold">Proyek</h2>
@@ -161,9 +155,7 @@
         </div>
         <div class="content-item hidden" id="silabus">
           <h2 class="text-lg font-bold">Silabus</h2>
-          <p class="mt-2 text-gray-700">Silabus mencakup topik yang akan
-            diajarkan
-            dalam kursus ini.</p>
+          <p class="mt-2 text-gray-700">{{$course->sylabus}}</p>
         </div>
         <div class="content-item hidden" id="diskusi">
           <h2 class="text-lg font-bold">Diskusi</h2>

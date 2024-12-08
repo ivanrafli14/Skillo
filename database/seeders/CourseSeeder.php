@@ -19,12 +19,10 @@ class CourseSeeder extends Seeder
         for($i = 0; $i < 5; $i++){
             DB::table('courses')->insert([
                 'name' => $faker->sentence(3),
-                'description' => $faker->paragraph(),
+                'description' => $faker->sentence(10),
                 'sylabus' => $faker->sentence(10),
                 'video_url' => 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
                 'thumbnail_url' => 'https://laraveldaily.com/wp-content/uploads/2015/06/laravel-logo-big.png',
-                'category' => 'Backend',
-                
             ]);
         }
 

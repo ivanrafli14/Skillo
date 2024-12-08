@@ -22,14 +22,15 @@
       <div class="container mx-auto">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           @foreach ($courses as $course)
-            <div
+
+            <a href="{{ route('courses.show', ['id' => $course->id]) }}"
               class="max-w-sm overflow-hidden rounded-lg border border-line bg-third shadow-sm">
               <!-- Image Section -->
-              <img src="{{ $course->thumbnail_url }}" alt="{{ $course->title }}"
+              <img src="{{ $course->thumbnail_url }}" alt="{{ $course->name }}"
                 class="h-40 w-full object-cover" />
               <!-- Content Section -->
               <div class="p-5">
-                <p class="text-sm text-neutral">{{ $course->category }}</p>
+                <p class="text-sm text-neutral">{{ $course->categories[0]->name ?? 'No category' }}</p>
                 <h4 class="mt-1 text-base font-semibold">
                   {{ $course->name }}
                 </h4>
@@ -49,7 +50,7 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </a>
           @endforeach
         </div>
       </div>

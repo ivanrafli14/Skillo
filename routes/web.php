@@ -8,11 +8,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/course-detail', function () {
-  return view('course-detail');
-});
+Route::get('/pricing', function () {
+    return view('pricing');
+  });
 
 Route::get('/courses',[CourseController::class, 'index'])->name('courses');
+Route::get('/courses/{id}',[CourseController::class, 'show'])->name('courses.show');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'registerSubmit'])->name('register.submit');
