@@ -31,8 +31,10 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
 
         $user->save();
+        $user->sendEmailVerificationNotification();
+        Auth::login($user);
 
-        return redirect()->route('login.form')->with('message', 'You have been registered successfully');
+        return redirect()->route('verification.notice')->with('message', 'Registration successful. Please verify your email.');
     }
 
     public function loginSubmit(Request $request){
