@@ -15,6 +15,8 @@ Route::get('/pricing', function () {
     return view('pricing');
   });
 
+Route::get('/classroom',[CourseController::class, 'syllabus'])->name('syllabus');
+
 Route::get('/courses',[CourseController::class, 'index'])->name('courses');
 Route::get('/courses/{id}',[CourseController::class, 'show'])->name('courses.show');
 

@@ -1,80 +1,88 @@
-<nav class="fixed top-0 z-10 w-full bg-white shadow transition-all duration-100">
+<nav
+  class="navbar fixed top-0 z-10 w-full border border-b-[0.7px] transition-colors duration-10 0 ease-in-out">
   <div
-    class="mx-auto flex max-w-[1400px] items-center justify-between px-[calc(3.5vw+5px)] py-4">
-    <!-- Logo -->
-    <div class="flex items-center gap-12">
+    class="promotion mx-auto flex justify-center bg-primary transition-all duration-200 ease-in-out">
+    <div
+      class="flex max-w-[1400px] items-center gap-2 px-[calc(3.5vw+5px)] py-[12px] text-xs font-medium text-white">
+      Langganan Kelas Sekarang, Diskon Kelas Hingga 50% <img
+        src="{{ asset('assets/star.svg') }}"> </div>
+  </div>
+  <div
+    class="mx-auto flex max-w-[1400px] items-center justify-between px-[calc(3.5vw+5px)] py-[14px]">
+    <div class="flex items-center gap-[50px]">
       <a href="/home">
         <img src="{{ asset('assets/brand-logo.png') }}" alt="brand-logo"
           class="w-11" />
       </a>
-      <!-- Primary Menu -->
-      <div class="hidden items-center gap-6 lg:flex">
-        <a href="/"
-          class="text-sm text-gray-800 transition hover:text-blue-600">Home</a>
-        <a href="/courses"
-          class="text-sm text-gray-800 transition hover:text-blue-600">Kursus</a>
-        <a href="/pricing"
-          class="text-sm text-gray-800 transition hover:text-blue-600">Langganan</a>
+      <div class="flex items-center gap-[50px] text-sm">
+        <a href="/" class="transition hover:text-primary">Home</a>
+        <a href="/courses" class="transition hover:text-primary">Kursus</a>
+        <a href="/pricing" class="transition hover:text-primary">Langganan</a>
         <div class="group relative">
-          <a href="/other"
-            class="text-sm text-gray-800 transition hover:text-blue-600">Lainnya</a>
           <div
-            class="absolute top-full hidden w-48 rounded-lg border border-gray-200 bg-white shadow-lg group-hover:block">
-            <a href="/blog"
-              class="block px-6 py-2 text-sm text-gray-800 hover:text-blue-600">Blog</a>
-            <a href="/career"
-              class="block px-6 py-2 text-sm text-gray-800 hover:text-blue-600">Karir</a>
-            <a href="/partenership"
-              class="block px-6 py-2 text-sm text-gray-800 hover:text-blue-600">Kerjasama</a>
+            class="group flex items-center justify-center gap-2 transition group-hover:text-primary">
+            Kategori <img src="{{ asset('assets/dropdown.png') }}"
+              class="w-2.5 transition group-hover:-rotate-180 group-hover:filter-primary">
+          </div>
+          <div
+            class="fixed -top-96 -translate-y-4 opacity-0 transition duration-200 ease-in-out group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100">
+            <div
+              class="mx-auto mt-7 w-[480px] rounded-lg border-[0.7px] bg-white shadow-custom">
+              <h2
+                class="rounded-t-lg bg-primary/90 p-3 text-center text-sm font-medium text-white">
+                Eksplor Kategori Kursus</h2>
+              <div class="grid grid-cols-2 px-10 py-3">
+                <a href="/frontend"
+                  class="block px-6 py-2 text-sm hover:text-primary">Frontend</a>
+                <a href="/devops"
+                  class="block px-6 py-2 text-sm hover:text-primary">DevOps/Infra</a>
+                <a href="/backend"
+                  class="block px-6 py-2 text-sm hover:text-primary">Backend</a>
+                <a href="/mobile"
+                  class="block px-6 py-2 text-sm hover:text-primary">Mobile
+                  Development</a>
+                <a href="/fullstack"
+                  class="block px-6 py-2 text-sm hover:text-primary">Fullstack</a>
+                <a href="/game"
+                  class="block px-6 py-2 text-sm hover:text-primary">Game</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Secondary Menu -->
-    <div class="hidden items-center gap-6 lg:flex">
-    @auth
-        <h1>Halo, {{auth()->user()->name}}</h1>
+    <div class="flex items-center justify-center gap-[40px]">
+      @auth
+        <h1>Halo, {{ auth()->user()->name }}</h1>
         <form action="{{ route('logout.submit') }}" method="POST" class="inline">
-            @csrf
-            <button type="submit"
-                    class="rounded-md bg-primary px-4 py-2 text-sm text-white">
-                Logout
-            </button>
+          @csrf
+          <button type="submit"
+            class="rounded-md bg-primary px-6 py-3 text-sm text-white">
+            Logout
+          </button>
         </form>
-    @else
-        <!-- Register and Login Links -->
+      @else
         <a href="{{ route('register.form') }}"
-          class="rounded-md border border-gray-800 px-4 py-2 text-sm text-gray-800">Daftar</a>
+          class="text-sm hover:text-primary">Daftar</a>
         <a href="{{ route('login.form') }}"
-          class="rounded-md bg-primary px-4 py-2 text-sm text-white">Masuk</a>
-    @endauth
+          class="rounded-lg bg-primary px-6 py-2.5 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-accent">Masuk</a>
+      @endauth
     </div>
-    {{-- <!-- Dashboard Menu -->
-    <div class="hidden items-center gap-3 lg:flex">
-      <img src="{{ asset('assets/profile.png') }}" alt="profile" class="w-8 h-8 rounded-full" />
-      <div class="relative group">
-        <img src="{{ asset('assets/dropdown.png') }}" alt="menu" class="w-4 cursor-pointer transition-transform group-hover:rotate-180" />
-        <div class="absolute right-0 hidden w-48 rounded-lg border border-gray-200 bg-white shadow-lg group-hover:block">
-          <a href="/dashboard" class="block px-6 py-2 text-sm text-gray-800 hover:text-blue-600">Dashboard</a>
-          <a href="/" class="block px-6 py-2 text-sm text-red-600 hover:text-red-800">Keluar</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Toggle -->
-    <button class="flex h-10 w-10 flex-col items-center justify-center gap-1 rounded-lg border lg:hidden">
-      <span class="block h-[3px] w-6 bg-gray-800"></span>
-      <span class="block h-[3px] w-6 bg-gray-800"></span>
-      <span class="block h-[3px] w-6 bg-gray-800"></span>
-    </button>
-  </div>
-  <!-- Mobile Menu -->
-  <div class="absolute top-0 hidden h-screen w-full flex-col bg-white px-8 pt-28 lg:hidden">
-    <a href="/" class="mb-4 text-sm text-gray-800">Home</a>
-    <a href="/course" class="mb-4 text-sm text-gray-800">Kursus</a>
-    <a href="/pricing" class="mb-4 text-sm text-gray-800">Langganan</a>
-    <a href="/other" class="mb-4 text-sm text-gray-800">Lainnya</a>
-    <a href="/register" class="mb-4 rounded-md border border-gray-800 px-4 py-2 text-sm text-gray-800">Daftar</a>
-    <a href="/login" class="mb-4 rounded-md bg-gray-800 px-4 py-2 text-sm text-white">Masuk</a>
-  </div> --}}
 </nav>
+<script>
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    const promotion = document.querySelector('.promotion');
+    if (window.scrollY > 50) {
+      navbar.classList.add('bg-white');
+      navbar.classList.add('shadow-custom');
+      promotion.classList.add('-translate-y-20');
+      promotion.classList.add('h-0');
+    } else {
+      navbar.classList.remove('bg-white');
+      navbar.classList.remove('shadow-custom');
+      promotion.classList.remove('-translate-y-20');
+      promotion.classList.remove('h-0');
+    }
+  });
+</script>

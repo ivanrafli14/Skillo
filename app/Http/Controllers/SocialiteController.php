@@ -38,6 +38,7 @@ class SocialiteController extends Controller
                     'email_verified_at' => now(),
                     'photo_url' => $user->avatar
                 ]);
+                $newUser->markEmailAsVerified();
 
                 Auth::login($newUser);
 
