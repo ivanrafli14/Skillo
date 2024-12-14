@@ -15,6 +15,7 @@
   ];
 @endphp
 @extends('layouts.app')
+@include('partials.navbar')
 @section('content')
   <section class="w-full pt-40">
     <div
@@ -101,6 +102,10 @@
   @include('home.courses-link')
   @include('home.testimonials-link')
   @include('home.faqs-link')
+  @include('partials.footer')
+@endsection
+
+@section('script')
   <script>
     document.querySelectorAll('.counter').forEach(function(counter) {
       let target = parseInt(counter.getAttribute('data-target'), 10);

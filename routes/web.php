@@ -15,6 +15,10 @@ Route::get('/pricing', function () {
     return view('pricing');
   });
 
+Route::get('/payment', function () {
+    return view('payment');
+  });
+
 Route::get('/classroom',[CourseController::class, 'syllabus'])->name('syllabus');
 
 Route::get('/courses',[CourseController::class, 'index'])->name('courses');

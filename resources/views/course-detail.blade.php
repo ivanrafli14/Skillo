@@ -85,7 +85,7 @@
 @endphp
 
 @extends('layouts.app')
-
+@include('partials.navbar')
 @section('content')
   <div class="w-full pt-40">
     <div class="mx-auto flex max-w-[1080px] flex-col px-[calc(3.5vw+5px)]">
@@ -180,6 +180,10 @@
     </div>
   </div>
   </div>
+  @include('partials.footer')
+@endsection
+
+@section('script')
   <script>
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     dropdownToggles.forEach((toggle) => {

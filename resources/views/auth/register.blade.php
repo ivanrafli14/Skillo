@@ -1,11 +1,11 @@
 @extends('layouts.app')
-
+@include('partials.navbar')
 @section('content')
-  <div class="w-full pt-[75px]">
+  <div class="w-full pt-40">
     <div
       class="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-[80px] px-[calc(3.5vw+5px)]">
       <form action="{{ route('register.submit') }}"
-        class="flex w-[540px] flex-shrink-0 flex-col rounded-[10px] p-10"
+        class="flex w-[540px] flex-shrink-0 flex-col rounded-[10px] px-10 pb-10"
         method="POST">
         @csrf
         <div class="mb-8 flex flex-col gap-5">
@@ -100,16 +100,19 @@
       </form>
     </div>
   </div>
+  @include('partials.footer')
+@endsection
+@section('script')
   <script>
     const inputs = document.querySelectorAll("input");
     inputs.forEach(function(input) {
       input.addEventListener("focus", function() {
         this.classList.remove("border-red-500");
         const parent = this.closest(
-        ".error-removed");
+          ".error-removed");
         if (parent) {
           parent.classList.remove(
-          "border-red-500");
+            "border-red-500");
         }
       });
     });
