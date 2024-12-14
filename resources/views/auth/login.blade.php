@@ -75,7 +75,7 @@
           <span class="text-[14px] text-[#98989a]">ATAU</span>
           <div class="ml-2 flex-1 border-b border-[#e4e4e7]"></div>
         </div>
-        <a href="/dashboard"
+        <a href="{{route('google.redirect')}}"
           class="mb-6 flex items-center justify-center rounded-[8px] border border-line bg-third px-6 py-[16px] text-[14px] font-medium text-secondary transition-colors hover:bg-[#e6f3fa]">
           <img class="mr-[14px] w-6" src="{{ asset('assets/google.png') }}"
             alt="google" />
