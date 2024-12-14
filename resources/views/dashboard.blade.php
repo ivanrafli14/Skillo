@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('partials.navbar')
 @section('content')
   @if (session('success'))
     <div id="alert"
@@ -14,7 +14,6 @@
 
   <div class="dashboard w-full pt-36">
     <div class="dashboard__container mx-auto max-w-7xl px-[calc(3.5vw+5px)]">
-      <!-- Profile Section -->
       <div class="dashboard__profile flex items-center justify-between gap-6 pb-8">
         <div>
           <img class="dashboard__profile-picture w-[90px] rounded-full"
@@ -116,7 +115,10 @@
       </div>
     </div>
   </div>
+  @include('partials.footer')
+@endsection
 
+@section('script')
   <script>
     const alert = document.getElementById("alert");
     const progressBar = document.getElementById("progress-bar");

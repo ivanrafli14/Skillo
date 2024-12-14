@@ -11,7 +11,7 @@
 @endphp
 
 @extends('layouts.app')
-
+@include('partials.navbar')
 @section('content')
   <div class="mt-40 w-full">
     <div class="mx-auto max-w-[1280px] px-[calc(3.5vw+5px)]">
@@ -57,18 +57,18 @@
                 </h4>
                 <ul class="mt-3 flex flex-col justify-between gap-1 text-sm">
                   <li class="flex items-center gap-2">
-                    <img class="filter-primary w-3" src="{{ asset('assets/time.svg') }}"
-                      alt="time">
+                    <img class="w-3 filter-primary"
+                      src="{{ asset('assets/time.svg') }}" alt="time">
                     <span>{{ $course->total_duration }} menit</span>
                   </li>
                   <li class="flex items-center gap-2">
-                    <img class="filter-primary w-3" src="{{ asset('assets/user.svg') }}"
-                      alt="user">
+                    <img class="w-3 filter-primary"
+                      src="{{ asset('assets/user.svg') }}" alt="user">
                     <span>{{ $course->total_user }} peserta</span>
                   </li>
                   <li class="flex items-center gap-2">
-                    <img class="filter-primary w-3" src="{{ asset('assets/video.svg') }}"
-                      alt="video">
+                    <img class="w-3 filter-primary"
+                      src="{{ asset('assets/video.svg') }}" alt="video">
                     <span>{{ $course->total_video }} video</span>
                   </li>
                 </ul>
@@ -79,4 +79,5 @@
       </div>
     </div>
   </div>
+  @include('partials.footer')
 @endsection
