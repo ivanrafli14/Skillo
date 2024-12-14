@@ -32,7 +32,7 @@
               class="absolute bottom-0 left-0 right-0 bg-zinc-900 p-4 text-white">
               <div class="flex items-center justify-between">
                 <button id="playPauseBtn" class="focus:outline-none">
-                  <svg class="h-6 w-6" fill="none" stroke="#000000"
+                  <svg class="h-6 w-6" fill="none" stroke="#ffffff"
                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       stroke-width="2"
