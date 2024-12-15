@@ -197,7 +197,7 @@
           data-content="testimoni">Testimoni</button>
       </div>
       <div id="content" class="mt-4 rounded-lg bg-white p-6">
-        <div class="content-item hidden" id="deskripsi">
+        <div class="content-item" id="deskripsi">
           <p class="mt-2">{{ $course->description }}</p>
         </div>
         <div class="content-item hidden" id="silabus">
@@ -232,17 +232,22 @@
           @endforeach
         </div>
         <div class="content-item hidden flex flex-col justify-center" id="testimoni">
-          <div class="cardTestimoni grid grid-cols-2 gap-4">
-            @foreach ($testimonials as $testimonial)
+
+            @if (count($course->testimonials) === 0)
+              <p class="text-center">Belum ada testimoni</p>
+
+            @else
+            <div class="cardTestimoni grid grid-cols-2 gap-4">
+            @foreach ($course->testimonials as $testimonial)
               <div class="rounded border border-line p-4">
                 <div class="flex items-center gap-3 pb-2">
-                  <img src="{{ asset($testimonial['user_image']) }}"
+                  <img src="{{ $testimonial->user->photo_url }}"
                     alt="user" class="w-12">
                   <div class="flex flex-col">
-                    <h3 class="pb-1">{{ $testimonial['name'] }}</h3>
+                    <h3 class="pb-1">{{ $testimonial->user->name}}</h3>
                     <div class="flex gap-1">
                       @for ($i = 0; $i < 5; $i++)
-                        @if ($i < $testimonial['rating'])
+                        @if ($i < $testimonial->rating)
                           <img src="{{ asset('assets/star-fill.png') }}"
                             class="w-4" alt="star">
                         @else
@@ -253,10 +258,12 @@
                     </div>
                   </div>
                 </div>
-                <p class="text-sm leading-relaxed">{{ $testimonial['review'] }}
+                <p class="text-sm leading-relaxed">{{ $testimonial->content}}
                 </p>
               </div>
             @endforeach
+            @endif
+
           </div>
           <button id="showMore" style="display: none;"
             class="mt-4 w-full rounded-lg bg-primary px-4 py-2 text-white">
