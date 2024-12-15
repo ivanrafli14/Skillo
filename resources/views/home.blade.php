@@ -15,8 +15,8 @@
   ];
 @endphp
 @extends('layouts.app')
-@include('partials.navbar')
 @section('content')
+  @include('partials.navbar')
   <section class="w-full pt-40">
     <div
       class="mx-auto flex max-w-[1280px] flex-row-reverse items-center gap-10 px-[calc(3.5vw+5px)]">
