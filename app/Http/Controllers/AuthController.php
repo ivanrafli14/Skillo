@@ -28,6 +28,7 @@ class AuthController extends Controller
         $user = new User();
         $user->name = $request->full_name;
         $user->email = $request->email;
+        $user->photo_url = 'https://cdn-icons-png.flaticon.com/512/4645/4645949.png';
         $user->password = bcrypt($request->password);
 
         $user->save();
