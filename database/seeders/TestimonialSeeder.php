@@ -20,7 +20,7 @@ class TestimonialSeeder extends Seeder
                 'user_id' => $faker->numberBetween(1, 10),
                 'course_id' => $faker->numberBetween(1, 6),
                 'rating' => $faker->numberBetween(0, 5),
-                'content' => $faker->sentece(15),
+                'content' => $faker->sentence(15),
             ]);
         }
     }
