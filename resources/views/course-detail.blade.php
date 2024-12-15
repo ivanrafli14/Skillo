@@ -256,20 +256,12 @@
             </div>
           @endforeach
         </div>
-<<<<<<< HEAD
         <div class="content-item flex hidden flex-col justify-center"
           id="testimoni">
 
           @if (count($course->testimonials) === 0)
             <p class="text-center">Belum ada testimoni</p>
           @else
-=======
-        <div class="content-item hidden flex flex-col justify-center" id="testimoni">
-            @if (count($course->testimonials) === 0)
-              <p class="text-center">Belum ada testimoni</p>
-
-            @else
->>>>>>> main
             <div class="cardTestimoni grid grid-cols-2 gap-4">
               @foreach ($course->testimonials as $testimonial)
                 <div class="rounded border border-line p-4">
