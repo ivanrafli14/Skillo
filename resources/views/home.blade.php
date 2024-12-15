@@ -18,11 +18,11 @@
           premium. Akses di mana saja, kapan saja.
         </h2>
         <h3 class="text-xl">
-          Mulai belajar untuk masa depan kariermu di dunia teknologi
+          Mulai belajar untuk masa depan karier Lo di dunia teknologi
         </h3>
         <div class="flex gap-5">
           <a class="rounded-lg bg-primary px-5 py-3 text-sm font-medium text-white transition hover:bg-accent"
-            href="/course">Telusuri Kelas</a>
+            href="/courses">Telusuri Kelas</a>
           <a class="rounded-lg border border-line bg-third px-5 py-3 text-sm font-medium transition hover:bg-white"
             href="/pricing">Cek Penawaran</a>
         </div>

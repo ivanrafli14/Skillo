@@ -216,7 +216,6 @@
               </button>
               <div class="dropdown-content hidden bg-third px-6 py-3">
                 <ul class="space-y-2">
-                    {{-- @dd($item->lessons) --}}
                   @foreach ($item->lessons as $material)
                     <li class="flex items-center text-sm">
                       <img
