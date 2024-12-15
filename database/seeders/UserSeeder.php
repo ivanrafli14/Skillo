@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'name' => $faker->name(),
                 'email' => $faker->unique()->safeEmail(),
                 'password' => Hash::make('password'),
-                'photo_url' => 'https://placehold.co/600x400/png',
+                'photo_url' => 'https://cdn-icons-png.flaticon.com/512/4645/4645949.png',
                 'subscription' => $faker->randomElement(['free', 'premium']),
             ]);
         }

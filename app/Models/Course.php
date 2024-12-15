@@ -32,6 +32,11 @@ class Course extends Model
         return $this->hasMany(Syllabus::class);
     }
 
+    public function testimonials()
+    {
+        return $this->hasMany(Testimonial::class);
+    }
+
     public function getTotalVideoAttribute()
     {
         return $this->syllabusses()
@@ -60,8 +65,4 @@ class Course extends Model
         return $this->users()->count();
     }
 
-    public function testimonials()
-    {
-        return $this->hasMany(Testimonial::class);
-    }
 }

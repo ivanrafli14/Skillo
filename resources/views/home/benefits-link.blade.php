@@ -1,43 +1,4 @@
-@php
-  $benefits = [
-      [
-          'number' => '01',
-          'title' => 'Jadwal Belajar Fleksibel',
-          'description' =>
-              'Sesuaikan waktu belajar Anda dengan komitmen dan kewajiban yang sudah ada.',
-      ],
-      [
-          'number' => '02',
-          'title' => 'Instruktur Ahli',
-          'description' =>
-              'Belajar dari pakar industri yang memiliki pengalaman langsung dalam desain dan pengembangan.',
-      ],
-      [
-          'number' => '03',
-          'title' => 'Beragam Pilihan Kelas',
-          'description' =>
-              'Jelajahi berbagai kelas desain dan pengembangan yang mencakup beragam topik menarik.',
-      ],
-      [
-          'number' => '04',
-          'title' => 'Kurikulum Terkini',
-          'description' =>
-              'Akses kelas dengan konten up-to-date yang mencerminkan tren dan praktik industri terbaru.',
-      ],
-      [
-          'number' => '05',
-          'title' => 'Proyek dan Tugas Praktis',
-          'description' =>
-              'Kembangkan portofolio yang menampilkan keterampilan dan kemampuan Anda kepada calon pemberi kerja.',
-      ],
-      [
-          'number' => '06',
-          'title' => 'Lingkungan Belajar Interaktif',
-          'description' =>
-              'Berkolaborasi dengan sesama pelajar, bertukar ide dan umpan balik untuk meningkatkan pemahaman Anda.',
-      ],
-  ];
-@endphp
+
 
 <div
   class="mx-auto flex max-w-[1280px] flex-col gap-[30px] px-[calc(3.5vw+5px)] pt-[60px]" id="benefits">

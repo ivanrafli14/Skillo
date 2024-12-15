@@ -1,19 +1,3 @@
-@php
-  $companies = [
-      ['name' => 'Adobe', 'logo' => './assets/adobe.png'],
-      ['name' => 'Amazon', 'logo' => './assets/amazon.png'],
-      ['name' => 'Netflix', 'logo' => './assets/netflix.png'],
-      ['name' => 'Notion', 'logo' => './assets/notion.png'],
-      ['name' => 'Spotify', 'logo' => './assets/spotify.png'],
-      ['name' => 'Zoom', 'logo' => './assets/zoom.png'],
-  ];
-  $stats = [
-      ['name' => 'Pelajar Terdaftar', 'value' => '2000'],
-      ['name' => 'Instruktur Ahli', 'value' => '70'],
-      ['name' => 'Studi Proyek', 'value' => '90'],
-      ['name' => 'Kursus Online', 'value' => '120'],
-  ];
-@endphp
 @extends('layouts.app')
 @section('content')
   @include('partials.navbar')
@@ -82,7 +66,7 @@
     <div class="relative mx-auto max-w-[960px] bg-white px-[calc(3.5vw+5px)]">
       <video id="video" class="w-full rounded-lg border border-line"
         poster="{{ asset('assets/trailer-thumbnail.webp') }}">
-        <source src="{{ asset('assets/trailer-video.mp4') }}" type="video/mp4">
+        <source src="https://asset.cloudinary.com/dukifna6a/1cb4131805960cf09fc3a927c2dab0a4" type="video/mp4">
       </video>
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <button id="playButton"

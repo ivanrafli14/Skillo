@@ -1,36 +1,3 @@
-@php
-  $faqs = [
-      [
-          'question' => 'Bisakah saya mendaftar di beberapa kelas sekaligus?',
-          'answer' =>
-              'Tentu saja! Lo bisa mendaftar di beberapa kelas secara bersamaan dan mengaksesnya sesuai kenyamanan.',
-      ],
-      [
-          'question' =>
-              'Dukungan seperti apa yang bisa saya harapkan dari instruktur?',
-          'answer' =>
-              'Instruktur kami siap membantu Lo melalui forum diskusi, sesi tanya jawab langsung, dan umpan balik terhadap tugas-tugas Lo sebelumnya.',
-      ],
-      [
-          'question' =>
-              'Apakah kelas-kelas ini bersifat self-paced atau memiliki tanggal mulai dan selesai yang spesifik?',
-          'answer' =>
-              'Mayoritas kelas kami bersifat self-paced, memungkinkan Lo belajar sesuai jadwal yang Lo mau. Namun, beberapa kelas mungkin memiliki jadwal tertentu untuk meningkatkan interaksi antar peserta.',
-      ],
-      [
-          'question' => 'Apakah ada prasyarat untuk kelas-kelas ini?',
-          'answer' =>
-              'Prasyarat bervariasi tergantung pada kelas. Beberapa kelas tingkat pemula tidak memerlukan pengetahuan khusus, sementara kelas tingkat lanjut mungkin memerlukan pengetahuan dasar tertentu.',
-      ],
-      [
-          'question' =>
-              'Bisakah saya mengunduh materi kelas untuk akses offline?',
-          'answer' =>
-              'Ya, sebagian besar materi kelas dapat Lo unduh untuk akses offline. Namun, beberapa konten interaktif mungkin memerlukan koneksi internet.',
-      ],
-  ];
-@endphp
-
 <section class="w-full pt-20">
   <div class="mx-auto max-w-[1280px] px-[calc(3.5vw+5px)]">
     <div id="faqList">
