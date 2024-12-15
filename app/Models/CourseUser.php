@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CourseUser extends Model
 {
     //
+    public $timestamps = false;
     protected $fillable = [
         'user_id',
         'course_id',

@@ -16,6 +16,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/pricing', [PaymentController::class, 'pricing'])->name('pricing');
 Route::get('/payment', [PaymentController::class, 'payment'])->name('payment')->middleware(['auth', 'verified']);
 Route::post('/payment/{id}', [PaymentController::class, 'store'])->name('payment.store');
+Route::post('payment/course/{id}', [PaymentController::class, 'enroll'])->name('payment.enroll');
 
 Route::get('/classroom',[CourseController::class, 'classroom'])->name('classroom')->middleware(['auth', 'verified']);
 
