@@ -8,14 +8,14 @@ class Lesson extends Model
 {
     //
     protected $fillable = [
-        'course_id',
+        'syllabus_id',
         'title',
-        'description',
+        'duration',
         'video_url',
     ];
 
-    public function course()
+    public function syllabus()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Syllabus::class);
     }
 }

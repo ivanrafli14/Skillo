@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id')->constrained();
+            $table->foreignId('syllabus_id')->constrained('syllabuses');
             $table->string('title');
             $table->string('video_url');
             $table->integer('duration');

@@ -10,15 +10,16 @@ class Course extends Model
     protected $fillable = [
         'name',
         'description',
-        'sylabus',
         'video_url',
         'user_id',
         'thumbnail_url',
+        'category_id',
+        'author',
     ];
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class, 'course_category');
+        return $this->belongsTo(Category::class);
     }
 
     public function users()
@@ -26,21 +27,33 @@ class Course extends Model
         return $this->belongsToMany(User::class, 'course_users');
     }
 
-    public function lessons()
+    public function syllabusses()
     {
-        return $this->hasMany(Lesson::class);
+        return $this->hasMany(Syllabus::class);
     }
 
     public function getTotalVideoAttribute()
     {
-        return $this->lessons()->count();
+        return $this->syllabusses()
+        ->with('lessons') // Eager load lessons
+        ->get()
+        ->flatMap(function ($syllabus) {
+            return $syllabus->lessons; // Flatten lessons from all syllabuses
+        })
+        ->count(); // Sum the 'duration' field from lessons
     }
-
 
     public function getTotalDurationAttribute()
     {
-        return $this->lessons()->sum('duration');
+        return $this->syllabusses()
+        ->with('lessons') // Eager load lessons
+        ->get()
+        ->flatMap(function ($syllabus) {
+            return $syllabus->lessons; // Flatten lessons from all syllabuses
+        })
+        ->sum('duration'); // Sum the 'duration' field from lessons
     }
+
 
     public function getTotalUserAttribute()
     {

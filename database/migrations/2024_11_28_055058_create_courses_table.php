@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->string('sylabus');
+            $table->text('description');
             $table->string('video_url');
             $table->string('thumbnail_url');
+            $table->string('author');
+            $table->foreignId('category_id')->constrained();
+
         });
     }
 

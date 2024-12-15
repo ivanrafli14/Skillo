@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
     //
-    public function index(){
-        $courses = Course::all();
-        return view('courses', compact('courses'));
+    public function index(Request $request){
+        $category_id = $request->query('category_id');
+        $categories  = Category::all();
+        if($category_id){
+            $courses = Course::where('category_id', $category_id)->get();
+        }else{
+            $courses = Course::all();
+        }
+        return view('courses', compact('courses', 'categories'));
     }
+
+
 
     public function syllabus(){
       $syllabus = [
