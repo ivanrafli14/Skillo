@@ -65,4 +65,14 @@ class Course extends Model
         return $this->users()->count();
     }
 
+    public function getRatingAttribute()
+    {
+        return round($this->testimonials()->avg('rating'), 2);
+    }
+
+    public function getTotalTestimonialAttribute()
+    {
+        return $this->testimonials()->count();
+    }
+
 }

@@ -12,6 +12,7 @@ class CourseController extends Controller
     public function index(Request $request){
         $category_id = $request->query('category_id');
         $categories  = Category::all();
+
         if($category_id){
             $courses = Course::where('category_id', $category_id)->get();
         }else{
@@ -22,7 +23,7 @@ class CourseController extends Controller
 
 
 
-    public function syllabus(){
+    public function classroom(){
       $syllabus = [
           [
               'title' => 'Pengenalan Python dan Remote Work',
