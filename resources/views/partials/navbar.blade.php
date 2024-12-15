@@ -51,33 +51,39 @@
         </div>
       </div>
     </div>
-    <div class="group relative">
-      <div
-        class="flex items-center justify-center gap-4 border border-line px-3 py-1.5 transition group-hover:text-primary">
-        <img src="{{ asset('assets/fajar.webp') }}" class="w-8 rounded-full"
-          alt="photo">
-        <h3 class="text-sm text-secondary group-hover:text-primary">
-          {{ auth()->user()->name }}</h3>
-        <img src="{{ asset('assets/dropdown.png') }}"
-          class="w-3 transition-transform duration-100 group-hover:rotate-180 group-hover:filter-primary"
-          alt="dropdown">
-      </div>
-      <form action="{{ route('logout.submit') }}" method="POST"
-        class="fixed -top-96 -translate-y-4 border-line bg-white p-1.5 opacity-0 transition duration-100 group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100">
-        <div class="flex flex-col bg-white shadow-custom">
-          @csrf
-          <div class="flex w-fit flex-col items-center justify-center gap-1.5">
-            <a href="/dashboard"
-              class="border border-line p-[49px] py-2 text-sm hover:text-primary">Dashboard</a>
-            <button type="submit"
-              class="bg-primary px-16 py-2 text-sm text-white hover:bg-red-600">
-              Logout
-            </button>
-          </div>
+    @auth
+      <div class="group relative">
+        <div
+          class="flex items-center justify-center gap-4 border border-line px-3 py-1.5 transition group-hover:text-primary">
+          <img src="{{ asset('assets/fajar.webp') }}" class="w-8 rounded-full"
+            alt="photo">
+          <h3 class="text-sm text-secondary group-hover:text-primary">
+            {{ auth()->user()->name }}</h3>
+          <img src="{{ asset('assets/dropdown.png') }}"
+            class="w-3 transition-transform duration-100 group-hover:rotate-180 group-hover:filter-primary"
+            alt="dropdown">
         </div>
-      </form>
-    </div>
-
+        <form action="{{ route('logout.submit') }}" method="POST"
+          class="fixed -top-96 -translate-y-4 border-line bg-white p-1.5 opacity-0 transition duration-100 group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100">
+          <div class="flex flex-col bg-white shadow-custom">
+            @csrf
+            <div class="flex w-fit flex-col items-center justify-center gap-1.5">
+              <a href="/dashboard"
+                class="border border-line p-[49px] py-2 text-sm hover:text-primary">Dashboard</a>
+              <button type="submit"
+                class="bg-primary px-16 py-2 text-sm text-white hover:bg-red-600">
+                Logout
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    @else
+      <a href="{{ route('register.form') }}"
+        class="text-sm hover:text-primary">Daftar</a>
+      <a href="{{ route('login.form') }}"
+        class="rounded-lg bg-primary px-6 py-2.5 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-accent">Masuk</a>
+    @endauth
   </div>
 </nav>
 <script>
