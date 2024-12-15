@@ -10,6 +10,6 @@ class Category extends Model
 
     public function courses()
     {
-        return $this->BelongsToMany(Course::class, 'course_category');
+        return $this->hasMany(Course::class);
     }
 }

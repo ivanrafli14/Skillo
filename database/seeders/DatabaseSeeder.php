@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             UserSeeder::class,
             CourseSeeder::class,
+            SyllabusSeeder::class,
             LessonSeeder::class,
             TestimonialSeeder::class,
             CourseUserSeeder::class,
-            CourseCategorySeeder::class,
         ]);
     }
 }
