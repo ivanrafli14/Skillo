@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('video_url');
             $table->string('thumbnail_url');
             $table->string('author');
+            $table->string('slug');
             $table->foreignId('category_id')->constrained();
 
         });

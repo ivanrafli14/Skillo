@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CourseSeeder extends Seeder
 {
@@ -74,6 +75,7 @@ class CourseSeeder extends Seeder
                 'thumbnail_url' => $item['thumbnail_url'],
                 'category_id' => $item['category_id'],
                 'author' => $item['author'],
+                'slug' => Str::slug($item['name']),
             ]);
         }
 
