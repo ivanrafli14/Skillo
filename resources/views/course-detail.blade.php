@@ -201,9 +201,16 @@
           class="w-full rounded-lg border border-primary/20 bg-primary/10 py-2.5 text-primary transition">
           Tonton Video Intro
         </button>
-        <button class="w-full rounded-lg bg-primary py-2.5 text-white transition">
-          Enroll Sekarang
-        </button>
+        <a href="{{route('payment')}}"
+        id="confirm"
+        class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
+        Enroll Kelas
+        </a>
+        <a href="{{route('payment')}}"
+        id="confirm"
+        class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
+        Masuk ke Kelas
+        </a>
       </div>
       <div
         class="flex justify-around border-b border-line px-5 pb-6 pt-10 text-sm">
@@ -249,12 +256,20 @@
             </div>
           @endforeach
         </div>
+<<<<<<< HEAD
         <div class="content-item flex hidden flex-col justify-center"
           id="testimoni">
 
           @if (count($course->testimonials) === 0)
             <p class="text-center">Belum ada testimoni</p>
           @else
+=======
+        <div class="content-item hidden flex flex-col justify-center" id="testimoni">
+            @if (count($course->testimonials) === 0)
+              <p class="text-center">Belum ada testimoni</p>
+
+            @else
+>>>>>>> main
             <div class="cardTestimoni grid grid-cols-2 gap-4">
               @foreach ($course->testimonials as $testimonial)
                 <div class="rounded border border-line p-4">

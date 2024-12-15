@@ -94,10 +94,9 @@
               <img class="h-16 w-16" src="{{ asset('assets/johndoe.webp') }}"
                 alt="photo">
               <div>
-                <p class="pb-0.5 text-sm font-semibold text-secondary">Azkan
-                  Nawal
+                <p class="pb-0.5 text-sm font-semibold text-secondary">{{ auth()->user()->name }}</p>
                 </p>
-                <p class="text-sm opacity-60">azkannawal@gmail.com</p>
+                <p class="text-sm opacity-60">{{ auth()->user()->email }}</p>
               </div>
             </div>
             <div class="item flex flex-col gap-4">
@@ -135,8 +134,14 @@
               <p class="text-sm font-semibold opacity-80">Total :</p>
               <p class="text-sm font-bold" id="total">Rp 199.000</p>
             </div>
-            <button type="submit" id="confirm"
-              class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent">Konfirmasi</button>
+            <form action="{{ route('payment.store', ['id' => auth()->user()->id]) }}" method="POST">
+                @csrf
+                <button type="submit"
+                        id="confirm"
+                        class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
+                        Konfirmasi
+                </button>
+            </form>
           </div>
         </div>
         <div id="modal"

@@ -32,19 +32,19 @@
                 class="rounded-t-lg bg-primary/90 p-3 text-center text-sm font-medium text-white">
                 Eksplor Kategori Kursus</h2>
               <div class="grid grid-cols-2 px-10 py-3">
-                <a href="/frontend"
+                <a href="/courses/1"
                   class="block px-6 py-2 text-sm hover:text-primary">Frontend</a>
-                <a href="/devops"
+                <a href="/courses/4"
                   class="block px-6 py-2 text-sm hover:text-primary">DevOps/Infra</a>
-                <a href="/backend"
+                <a href="/courses/2"
                   class="block px-6 py-2 text-sm hover:text-primary">Backend</a>
-                <a href="/mobile"
+                <a href="/courses/6"
                   class="block px-6 py-2 text-sm hover:text-primary">Mobile
                   Development</a>
-                <a href="/fullstack"
+                <a href="/courses/3"
                   class="block px-6 py-2 text-sm hover:text-primary">Fullstack</a>
-                <a href="/game"
-                  class="block px-6 py-2 text-sm hover:text-primary">Game</a>
+                <a href="/courses/5"
+                  class="block px-6 py-2 text-sm hover:text-primary">Game Development</a>
               </div>
             </div>
           </div>
