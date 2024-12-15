@@ -45,8 +45,8 @@
   ];
 @endphp
 
-@extends('layouts.app')
 @section('content')
+@extends('layouts.app')
   <section class="w-full bg-white">
     <div
       class="mx-auto flex max-w-[1080px] items-center justify-between bg-white px-[calc(3.5vw+5px)] py-4 shadow-custom">
