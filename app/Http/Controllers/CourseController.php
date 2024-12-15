@@ -11,13 +11,26 @@ class CourseController extends Controller
     //
     public function index(Request $request){
         $category_id = $request->query('category_id');
+        $sort = $request->query('sort');
+
         $categories  = Category::all();
 
-        if($category_id){
-            $courses = Course::where('category_id', $category_id)->get();
-        }else{
-            $courses = Course::all();
+        $query = Course::query();
+
+        if ($category_id) {
+            $query->where('category_id', $category_id);
         }
+
+        if ($sort == 'popular') {
+            $query->leftJoin('course_users', 'courses.id', '=', 'course_users.course_id')
+            ->select('courses.*')
+            ->selectRaw('COUNT(course_users.user_id) as total_users')
+            ->groupBy('courses.id')
+            ->orderByDesc('total_users'); // Order by the number of users (popularity)
+
+      // Execute the query to retrieve courses
+    }
+    $courses = $query->get();
         return view('courses', compact('courses', 'categories'));
     }
 
@@ -110,8 +123,8 @@ class CourseController extends Controller
       return view('classroom', compact('syllabus'));
     }
 
-    public function show($id){
-        $course = Course::find($id);
+    public function show($slug){
+        $course = Course::where('slug', $slug)->first();
         return view('course-detail', compact('course'));
     }
 }

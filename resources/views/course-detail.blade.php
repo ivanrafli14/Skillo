@@ -8,13 +8,8 @@
           class="h-[240px] w-auto object-cover max-w-[360px] rounded-lg border border-line" />
         <div class="flex flex-col gap-1.5">
           <p
-<<<<<<< HEAD
-            class="w-fit rounded-full border border-primary px-4 py-2 text-sm font-medium text-primary">
-            {{ $course->category->name ?? 'Other' }}</p>
-=======
             class="w-fit rounded-full border border-primary px-4 py-1.5 text-sm font-medium text-primary">
             {{ $course->category->name ?? 'No category' }}</p>
->>>>>>> main
           <h3 class="pb-3 pt-1 text-2xl font-semibold text-secondary">
             {{ $course->name }}</h3>
           <div class="flex items-center gap-2.5 text-yellow-500">
@@ -24,7 +19,7 @@
                 d="M12.0009 18.26L4.94789 22.208L6.52289 14.28L0.587891 8.792L8.61489 7.84L12.0009 0.5L15.3869 7.84L23.4139 8.792L17.4789 14.28L19.0539 22.208L12.0009 18.26Z"
                 fill="#F59E0B"></path>
             </svg>
-            <span class="">5.0 • 35 Ulasan</span>
+            <span class="">{{$course->rating}} • {{$course->total_testimonial}}</span>
           </div>
           <div class="flex items-center gap-2.5">
             <img class="w-4 filter-primary" src="{{ asset('assets/user.svg') }}"

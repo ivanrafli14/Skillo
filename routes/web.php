@@ -16,12 +16,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/pricing', [PaymentController::class, 'pricing'])->name('pricing');
 Route::get('/payment', [PaymentController::class, 'payment'])->name('payment')->middleware(['auth', 'verified']);
 Route::post('/payment/{id}', [PaymentController::class, 'store'])->name('payment.store');
-Route::post('payment/course/{id}', [PaymentController::class, 'enroll'])->name('payment.enroll');
+Route::post('/payment/course/{id}', [PaymentController::class, 'enroll'])->name('payment.enroll');
+Route::post('/payment/midtrans/snap-token', [PaymentController::class, 'createSnapToken']);
+Route::get('/payment/midtrans/success', [PaymentController::class, 'successHandler'])->name('payment.success');
+
 
 Route::get('/classroom',[CourseController::class, 'classroom'])->name('classroom')->middleware(['auth', 'verified']);
 
-Route::get('/courses',[CourseController::class, 'index'])->name('courses');
-Route::get('/courses/{id}',[CourseController::class, 'show'])->name('courses.show');
+Route::get('/courses',[CourseController::class, 'index'])->name('courses.index');
+Route::get('/courses/{slug}',[CourseController::class, 'show'])->name('courses.show');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'registerSubmit'])->name('register.submit');

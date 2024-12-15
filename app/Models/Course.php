@@ -16,6 +16,7 @@ class Course extends Model
         'thumbnail_url',
         'category_id',
         'author',
+        'slug',
     ];
 
     public function category()
