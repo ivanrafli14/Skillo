@@ -1,29 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Skillo</title>
-  <link rel="icon" type="image/svg+xml"
-    href="{{ asset('assets/brand-logo.png') }}" />
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  @vite('resources/css/app.css')
-</head>
-
-<body>
+@extends('layouts.app')
+@section('content')
   <section class="min-h-svh bg-zinc-950">
     <div class="relative flex w-full">
       <div class="flex w-3/4 px-[calc(2.5vw+5px)]">
         <div class="left-0 w-full overflow-hidden">
-          <h2 class="bg-black/10 py-[calc(3.5vh+5px)] text-line"> Data Science dengan Python: Dari A sampai Z
+          <h2 class="bg-black/10 py-[calc(3.5vh+5px)] text-line"> Data Science
+            dengan Python: Dari A sampai Z
           </h2>
           <div class="relative aspect-video w-full">
             <video id="video" class="h-full w-full object-contain"
@@ -55,7 +37,7 @@
           </div>
         </div>
       </div>
-      <aside class="w-1/4 bg-third min-h-screen">
+      <aside class="min-h-screen w-1/4 bg-third">
         @foreach ($syllabus as $item)
           <div class="dropdown border-b">
             <button
@@ -70,10 +52,10 @@
             <div class="dropdown-content hidden bg-third px-6 py-3">
               <ul class="space-y-2">
                 @foreach ($item['materials'] as $material)
-                  <li class="flex justify-center items-center  text-xs">
+                  <li class="flex items-center justify-center text-xs">
                     <img class="mr-2 flex w-2.5 filter-primary"
                       src="{{ $material['icon'] }}" alt="material icon">
-                    <div class="flex justify-between items-center w-full gap-2">
+                    <div class="flex w-full items-center justify-between gap-2">
                       <span>{{ $material['title'] }}</span>
                       <span>{{ $material['duration'] }}</span>
                     </div>
@@ -86,6 +68,9 @@
       </aside>
     </div>
   </section>
+@endsection
+
+@section('script')
   <script type="module">
     const video = document.getElementById("video");
     const playPauseBtn = document.getElementById("playPauseBtn");
@@ -171,6 +156,4 @@
       });
     });
   </script>
-</body>
-
-</html>
+@endsection
