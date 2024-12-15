@@ -79,10 +79,12 @@
         </form>
       </div>
     @else
-      <a href="{{ route('register.form') }}"
-        class="text-sm hover:text-primary">Daftar</a>
-      <a href="{{ route('login.form') }}"
-        class="rounded-lg bg-primary px-6 py-2.5 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-accent">Masuk</a>
+      <div class="flex items-center gap-8">
+        <a href="{{ route('register.form') }}"
+          class="text-sm hover:text-primary">Daftar</a>
+        <a href="{{ route('login.form') }}"
+          class="rounded-lg bg-primary px-6 py-2.5 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-accent">Masuk</a>
+      </div>
     @endauth
   </div>
 </nav>
