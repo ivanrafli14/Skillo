@@ -9,7 +9,7 @@
           <h3 class="">
             Masih punya pertanyaan? Hubungi Tim Kami melalui support@skillo.com
           </h3>
-          <a class="w-fit rounded-lg border border-line bg-third px-4 py-3 text-sm font-medium transition hover:bg-primary hover:text-white hover:font-normal"
+          <a class="w-fit rounded-lg border border-line bg-third px-4 py-3 text-sm font-medium transition hover:bg-primary hover:font-normal hover:text-white"
             href="/faq">
             Baca Selengkapnya
           </a>

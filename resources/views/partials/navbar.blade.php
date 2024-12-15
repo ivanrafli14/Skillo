@@ -1,11 +1,11 @@
 <nav
-  class="navbar fixed top-0 z-10 w-full  transition-colors duration-10 0 ease-in-out">
+  class="navbar duration-10 0 fixed top-0 border-b border-line z-10 w-full transition-colors ease-in-out">
   <div
     class="promotion mx-auto flex justify-center bg-primary transition-all duration-200 ease-in-out">
-    <div
-      class="flex max-w-[1400px] items-center gap-2 px-[calc(3.5vw+5px)] py-[12px] text-xs font-medium text-white">
+    <a href="/pricing"
+      class="flex max-w-[1400px] items-center gap-2 px-[calc(3.5vw+5px)] py-[12px] text-xs font-medium text-white hover:underline">
       Langganan Kelas Sekarang, Diskon Kelas Hingga 50% <img
-        src="{{ asset('assets/star.svg') }}"> </div>
+        src="{{ asset('assets/star.svg') }}"> </a>
   </div>
   <div
     class="mx-auto flex max-w-[1400px] items-center justify-between px-[calc(3.5vw+5px)] py-[14px]">
