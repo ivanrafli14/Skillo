@@ -15,12 +15,12 @@ class TestimonialSeeder extends Seeder
     {
         //
         $faker = \Faker\Factory::create();
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 20; $i++){
             DB::table('testimonials')->insert([
-                'user_id' => $faker->numberBetween(1, 5),
-                'course_id' => $faker->numberBetween(1, 5),
-                'rating' => $faker->numberBetween(1, 5),
-                'content' => $faker->paragraph(),
+                'user_id' => $faker->numberBetween(1, 10),
+                'course_id' => $faker->numberBetween(1, 6),
+                'rating' => $faker->numberBetween(0, 5),
+                'content' => $faker->sentece(15),
             ]);
         }
     }
