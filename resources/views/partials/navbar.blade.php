@@ -1,5 +1,5 @@
 <nav
-  class="navbar duration-10 0 fixed top-0 border-b border-line z-10 w-full transition-colors ease-in-out">
+  class="navbar duration-10 0 fixed top-0 z-10 w-full border-b border-line transition-colors ease-in-out">
   <div
     class="promotion mx-auto flex justify-center bg-primary transition-all duration-200 ease-in-out">
     <a href="/pricing"
@@ -10,7 +10,7 @@
   <div
     class="mx-auto flex max-w-[1400px] items-center justify-between px-[calc(3.5vw+5px)] py-[14px]">
     <div class="flex items-center gap-[50px]">
-      <a href="/home">
+      <a href="/">
         <img src="{{ asset('assets/brand-logo.png') }}" alt="brand-logo"
           class="w-11" />
       </a>
@@ -25,9 +25,9 @@
               class="w-2.5 transition group-hover:-rotate-180 group-hover:filter-primary">
           </div>
           <div
-            class="fixed -top-96 -translate-y-4 opacity-0 transition duration-200 ease-in-out group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100">
+            class="duration-400 fixed -top-96 -translate-y-4 opacity-0 transition ease-in-out group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100">
             <div
-              class="mx-auto mt-7 w-[480px] rounded-lg border-[0.7px] bg-white shadow-custom">
+              class="mx-auto mt-7 w-[480px] rounded-lg bg-white shadow-custom">
               <h2
                 class="rounded-t-lg bg-primary/90 p-3 text-center text-sm font-medium text-white">
                 Eksplor Kategori Kursus</h2>

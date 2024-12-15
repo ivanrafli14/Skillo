@@ -22,7 +22,7 @@
       @foreach ($courses as $course)
         <div
           class="flex flex-[1_1_400px] flex-col justify-between gap-4 rounded-lg border border-line bg-white p-8 object-cover">
-          <img class="w-full rounded-lg" src="{{ $course->thumbnail_url}}"
+          <img class="h-[275px] object-cover rounded-lg" src="{{ $course->thumbnail_url}}"
             alt="{{ $course['title'] }}" />
           <div class="flex flex-wrap items-center gap-2.5">
             <span class="rounded-lg border border-line px-4 py-2 text-sm">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.navbar')
+  @include('partials.navbar')
   <div class="mt-40 w-full">
     <div class="mx-auto max-w-[1280px] px-[calc(3.5vw+5px)]">
       <div class="flex items-center justify-end pb-4">
@@ -16,25 +16,23 @@
             class="absolute -translate-y-96 opacity-0 transition-opacity group-hover:translate-y-0 group-hover:opacity-100">
             <div
               class="mt-1 flex flex-col gap-3 rounded-lg border border-line bg-third px-5 py-4">
-              <span class="text-sm hover:text-primary">Terbaru</span>
-              <span class="text-sm hover:text-primary">Terpopuler</span>
+              <a href="/newest" class="text-sm hover:text-primary">Terbaru</a>
+              <a href="/popular" class="text-sm hover:text-primary">Terpopuler</a>
             </div>
           </div>
         </div>
       </div>
       <div class="flex items-center gap-2 pb-6">
-        <a
-        class="cursor-pointer rounded-lg border border-line bg-line/10 px-4 py-2.5 text-sm transition hover:bg-primary/20"
-        href="{{ route('courses')}}">
-        Semua
-    </a>
+        <a class="activated active-category {{ request('category_id') ? '' : 'bg-primary/20 text-primary' }} cursor-pointer rounded-lg border border-line px-4 py-2.5 text-sm transition hover:bg-primary/20"
+          href="{{ route('courses') }}">
+          Semua
+        </a>
         @foreach ($categories as $category)
-        <a
-            class="cursor-pointer rounded-lg border border-line bg-line/10 px-4 py-2.5 text-sm transition hover:bg-primary/20"
+          <a class="activated {{ request('category_id') == $category->id ? 'bg-primary/20 text-primary' : '' }} cursor-pointer rounded-lg border border-line bg-line/10 px-4 py-2.5 text-sm transition hover:bg-primary/20"
             href="{{ route('courses', ['category_id' => $category->id]) }}">
             {{ $category->name }}
-        </a>
-    @endforeach
+          </a>
+        @endforeach
       </div>
       <div class="container mx-auto">
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -44,7 +42,8 @@
               <img src="{{ $course->thumbnail_url }}" alt="{{ $course->name }}"
                 class="h-40 w-full object-cover" />
               <div class="flex flex-grow flex-col justify-between p-4">
-                <p class="text-xs">
+                <p
+                  class="w-fit rounded-full border border-primary px-2 py-1.5 text-xs text-primary">
                   {{ $course->category->name ?? 'No category' }}</p>
                 <h4 class="mt-1 text-base font-medium">
                   {{ $course->name }}
@@ -74,4 +73,18 @@
     </div>
   </div>
   @include('partials.footer')
+@endsection
+
+@section('script')
+  <script>
+    const categoryLinks = document.querySelectorAll('.activated');
+    categoryLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        categoryLinks.forEach(el => el.classList.remove(
+          'active-category', 'bg-primary/20', 'text-primary'));
+        event.currentTarget.classList.add('active-category',
+          'bg-primary/20', 'text-primary');
+      });
+    });
+  </script>
 @endsection
