@@ -18,7 +18,7 @@
         </div>
         <label class="mb-3 text-[16px] font-medium">Nama Lengkap</label>
         <input
-          class="{{ $errors->has('full_name') ? 'border-red-500' : '' }} flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          class="{{ $errors->has('full_name') ? 'border-red-500' : '' }} flex items-center gap-2 rounded-lg border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
           placeholder="Masukkan Nama Lengkap" name="full_name"
           value="{{ old('full_name') }}" />
         @error('full_name')
@@ -26,7 +26,7 @@
         @enderror
         <label class="mt-4 text-[16px] font-medium">Email</label>
         <input
-          class="{{ $errors->has('email') ? 'border-red-500' : '' }} mt-3 flex items-center gap-2 rounded-[8px] border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          class="{{ $errors->has('email') ? 'border-red-500' : '' }} mt-3 flex items-center gap-2 rounded-lg border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
           placeholder="Masukkan Email" name="email" type="email"
           value="{{ old('email') }}" />
         @error('email')
@@ -34,9 +34,9 @@
         @enderror
         <label class="mt-4 text-[16px] font-medium">Kata Sandi</label>
         <div
-          class="{{ $errors->has('password') ? 'border-red-500' : '' }} error-removed mt-3 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
+          class="{{ $errors->has('password') ? 'border-red-500' : '' }} error-removed mt-3 flex items-center justify-between rounded-lg border border-line bg-third text-[16px] text-neutral">
           <input id="password" type="password"
-            class="flex-grow rounded-[8px] bg-third p-3 text-[16px] outline-primary"
+            class="flex-grow rounded-lg bg-third p-3 text-[16px] outline-primary"
             placeholder="Masukkan Kata Sandi" name="password" />
           <div class="px-3">
             <img class="w-5 cursor-pointer" src="{{ asset('assets/show.png') }}"
@@ -48,9 +48,9 @@
         @enderror
         <label class="mt-4 text-[16px] font-medium">Konfirmasi Kata Sandi</label>
         <div
-          class="{{ $errors->has('password_confirmation') ? 'border-red-500' : '' }} error-removed mt-3 flex items-center justify-between rounded-[8px] border border-line bg-third text-[16px] text-neutral">
+          class="{{ $errors->has('password_confirmation') ? 'border-red-500' : '' }} error-removed mt-3 flex items-center justify-between rounded-lg border border-line bg-third text-[16px] text-neutral">
           <input id="passwordConfirmation" type="password"
-            class="flex-grow rounded-[8px] bg-third p-3 text-[16px] outline-primary"
+            class="flex-grow rounded-lg bg-third p-3 text-[16px] outline-primary"
             placeholder="Masukkan Kata Sandi" name="password_confirmation" />
           <div class="px-3">
             <img class="w-5 cursor-pointer" id="toggle-passwordConfirmation"
@@ -72,7 +72,7 @@
           </label>
         </div>
         <button
-          class="mb-6 rounded-[8px] bg-primary px-5 py-3 text-center text-[14px] font-medium text-white transition-colors hover:bg-accent"
+          class="mb-6 rounded-lg bg-primary px-5 py-3 text-center text-[14px] font-medium text-white transition-colors hover:bg-accent"
           type="submit">
           Daftar
         </button>
@@ -82,8 +82,8 @@
           <div class="ml-2 flex-1 border-b border-[#e4e4e7]"></div>
         </div>
         <a href="{{ route('google.redirect') }}"
-          class="mb-6 flex items-center justify-center rounded-[8px] border border-line bg-third px-6 py-[16px] text-[14px] font-medium text-secondary transition-colors hover:bg-[#e6f3fa]">
-          <img class="mr-[14px] w-6" src="{{ asset('assets/google.png') }}"
+          class="mb-6 flex items-center justify-center rounded-lg border border-line bg-third px-6 py-3 text-[14px] font-medium text-secondary transition-colors hover:bg-[#e6f3fa]">
+          <img class="mr-[14px] w-4" src="{{ asset('assets/google.png') }}"
             alt="google" />
           Daftar dengan Google
         </a>
