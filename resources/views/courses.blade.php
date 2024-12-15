@@ -1,15 +1,3 @@
-@php
-  $categories = [
-      ['name' => 'Semua'],
-      ['name' => 'Frontend'],
-      ['name' => 'Backend'],
-      ['name' => 'Fullstack'],
-      ['name' => 'DevOps/Infra'],
-      ['name' => 'Mobile Development'],
-      ['name' => 'Game'],
-  ];
-@endphp
-
 @extends('layouts.app')
 
 @section('content')
@@ -35,12 +23,18 @@
         </div>
       </div>
       <div class="flex items-center gap-2 pb-6">
+        <a
+        class="cursor-pointer rounded-lg border border-line bg-line/10 px-4 py-2.5 text-sm transition hover:bg-primary/20"
+        href="{{ route('courses')}}">
+        Semua
+    </a>
         @foreach ($categories as $category)
-          <button
-            class="cursor-pointer rounded-lg border border-line bg-line/10 px-4 py-2.5 text-sm transition hover:bg-primary/20">
-            {{ $category['name'] }}
-          </button>
-        @endforeach
+        <a
+            class="cursor-pointer rounded-lg border border-line bg-line/10 px-4 py-2.5 text-sm transition hover:bg-primary/20"
+            href="{{ route('courses', ['category_id' => $category->id]) }}">
+            {{ $category->name }}
+        </a>
+    @endforeach
       </div>
       <div class="container mx-auto">
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -51,7 +45,7 @@
                 class="h-40 w-full object-cover" />
               <div class="flex flex-grow flex-col justify-between p-4">
                 <p class="text-xs">
-                  {{ $course->categories[0]->name ?? 'No category' }}</p>
+                  {{ $course->category->name ?? 'No category' }}</p>
                 <h4 class="mt-1 text-base font-medium">
                   {{ $course->name }}
                 </h4>

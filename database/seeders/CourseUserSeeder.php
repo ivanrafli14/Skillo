@@ -14,11 +14,11 @@ class CourseUserSeeder extends Seeder
     public function run(): void
     {
         $faker = \Faker\Factory::create();
-        for($i = 0; $i < 5; $i++){
+        for($i = 0; $i < 10; $i++){
             DB::table('course_users')->insert([
-                'user_id' => $faker->numberBetween(1, 5),
+                'user_id' => $faker->numberBetween(1, 10),
                 'course_id' => $faker->numberBetween(1, 5),
-                'progress' => $faker->numberBetween(1, 100),
+                'progress' => $faker->numberBetween(0, 100),
 
             ]);
         }

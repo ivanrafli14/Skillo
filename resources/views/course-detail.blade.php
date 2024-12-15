@@ -95,7 +95,7 @@
         <div class="flex flex-col gap-1.5">
           <p
             class="w-fit rounded-full border border-primary px-4 py-2 text-sm font-medium text-primary">
-            {{ $course->categories[0]->name ?? 'No catogory' }}</p>
+            {{ $course->category->name ?? 'No catogory' }}</p>
           <h3 class="pb-3 pt-1 text-2xl font-semibold text-secondary">
             {{ $course->name }}</h3>
           <div class="flex items-center gap-2.5">
@@ -144,27 +144,29 @@
           <p class="mt-2">{{ $course->description }}</p>
         </div>
         <div class="content-item hidden" id="silabus">
-          @foreach ($syllabus as $item)
+        {{-- @dd($course->syllabusses) --}}
+          @foreach ($course->syllabusses as $item)
             <div class="dropdown border-b">
               <button
                 class="dropdown-toggle flex w-full items-center justify-between px-4 py-3 text-left">
                 <div class="flex flex-col gap-1.5">
                   <span
-                    class="font-medium text-secondary">{{ $item['title'] }}</span>
-                  <span class="text-sm">{{ $item['description'] }}</span>
+                    class="font-medium text-secondary">{{ $item->title}}</span>
+                  <span class="text-sm">{{$item->total_item}} materi . {{$item->total_duration}} menit </span>
                 </div>
                 <img class="w-4 transition hover:filter-primary"
-                  src="{{ $item['icon'] }}" alt="dropdown icon">
+                  src={{asset('assets/dropdown.png')}} alt="dropdown icon">
               </button>
               <div class="dropdown-content hidden bg-third px-6 py-3">
                 <ul class="space-y-2">
-                  @foreach ($item['materials'] as $material)
+                    {{-- @dd($item->lessons) --}}
+                  @foreach ($item->lessons as $material)
                     <li class="flex items-center text-sm">
                       <img
                         class="mr-2 flex h-5 w-5 items-center justify-center filter-primary"
-                        src="{{ $material['icon'] }}" alt="material icon">
-                      <span class="flex-1">{{ $material['title'] }}</span>
-                      <span>{{ $material['duration'] }}</span>
+                        src="{{asset('assets/play.png') }}" alt="material icon">
+                      <span class="flex-1">{{ $material->title }}</span>
+                      <span>{{ $material->duration }} Menit</span>
                     </li>
                   @endforeach
                 </ul>

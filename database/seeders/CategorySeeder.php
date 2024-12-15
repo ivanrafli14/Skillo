@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
     {
         //
 
-        $categories = ['Web Development', 'Mobile Development', 'Game Development', 'Data Science', 'Machine Learning', 'Front End', 'Back End', 'Full Stack', 'DevOps', 'Cyber Security'];
+        $categories = ['Front End', 'Back End', 'Full Stack', 'DevOps', 'Game Development', 'Mobile Development'];
 
         for($i = 0; $i < count($categories); $i++){
             DB::table('categories')->insert([

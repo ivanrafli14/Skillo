@@ -121,7 +121,7 @@
     const alert = document.getElementById("alert");
     const progressBar = document.getElementById("progress-bar");
     const duration = 5000;
-    progressBar.style.transition = `width ${duration}ms linear`;
+    //progressBar.style.transition = `width ${duration}ms linear`;
     setTimeout(() => {
       progressBar.style.width = "0%";
     }, 10);

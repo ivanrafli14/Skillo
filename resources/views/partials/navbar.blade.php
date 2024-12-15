@@ -1,5 +1,5 @@
 <nav
-  class="navbar fixed top-0 z-10 w-full border border-b-[0.7px] transition-colors duration-10 0 ease-in-out">
+  class="navbar fixed top-0 z-10 w-full  transition-colors duration-10 0 ease-in-out">
   <div
     class="promotion mx-auto flex justify-center bg-primary transition-all duration-200 ease-in-out">
     <div
