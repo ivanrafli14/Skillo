@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -15,6 +16,7 @@ class Course extends Model
         'thumbnail_url',
         'category_id',
         'author',
+        'slug',
     ];
 
     public function category()
@@ -73,6 +75,11 @@ class Course extends Model
     public function getTotalTestimonialAttribute()
     {
         return $this->testimonials()->count();
+    }
+
+    public function getIsEnrolledAttribute()
+    {
+        return $this->users()->where('user_id', Auth::user()->id)->exists();
     }
 
 }

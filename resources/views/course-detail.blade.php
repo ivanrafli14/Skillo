@@ -1,146 +1,3 @@
-@php
-  $syllabus = [
-      [
-          'title' => 'Pengenalan Python dan Remote Work',
-          'description' => '3 materi · 30 menit',
-          'icon' => asset('assets/dropdown.png'),
-          'materials' => [
-              [
-                  'title' => 'Python di Remote Work',
-                  'duration' => '15 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Pengenalan Sintaks Python',
-                  'duration' => '10 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Instalasi dan Setup Python',
-                  'duration' => '5 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-          ],
-      ],
-      [
-          'title' => 'Dasar-Dasar Pemrograman',
-          'description' => '5 materi · 45 menit',
-          'icon' => asset('assets/dropdown.png'),
-          'materials' => [
-              [
-                  'title' => 'Variabel dan Tipe Data',
-                  'duration' => '10 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Operator dan Ekspresi',
-                  'duration' => '8 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Struktur Kondisional',
-                  'duration' => '12 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Perulangan',
-                  'duration' => '10 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Fungsi Dasar',
-                  'duration' => '5 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-          ],
-      ],
-      [
-          'title' => 'Pengembangan Aplikasi Sederhana',
-          'description' => '4 materi · 50 menit',
-          'icon' => asset('assets/dropdown.png'),
-          'materials' => [
-              [
-                  'title' => 'Membuat Program Kalkulator',
-                  'duration' => '20 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Membaca dan Menulis File',
-                  'duration' => '15 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Penggunaan Library Eksternal',
-                  'duration' => '10 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-              [
-                  'title' => 'Debugging dan Testing',
-                  'duration' => '5 menit',
-                  'icon' => asset('assets/play.png'),
-              ],
-          ],
-      ],
-  ];
-  $testimonials = [
-      [
-          'name' => 'Azkan Nawal',
-          'user_image' => 'assets/fajar.webp',
-          'rating' => 4,
-          'review' =>
-              'Walaupun level kelas ini adalah basic, tapi saya mendapatkan banyak knowledge baru terkait cloud dan AWS. Materi dasar ini membuat saya ingin belajar lebih dalam lagi mengenai cloud dan AWS.',
-      ],
-      [
-          'name' => 'Rina Santoso',
-          'user_image' => 'assets/rina.webp',
-          'rating' => 5,
-          'review' =>
-              'Materinya sangat komprehensif dan mudah dipahami. Saya sangat merekomendasikan kelas ini bagi pemula yang ingin belajar cloud computing.',
-      ],
-      [
-          'name' => 'Dewi Rahma',
-          'user_image' => 'assets/dewi.webp',
-          'rating' => 3,
-          'review' =>
-              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
-      ],
-      [
-          'name' => 'John',
-          'user_image' => 'assets/johndoe.webp',
-          'rating' => 3,
-          'review' =>
-              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
-      ],
-      [
-          'name' => 'Azkan Nawal',
-          'user_image' => 'assets/fajar.webp',
-          'rating' => 4,
-          'review' =>
-              'Walaupun level kelas ini adalah basic, tapi saya mendapatkan banyak knowledge baru terkait cloud dan AWS. Materi dasar ini membuat saya ingin belajar lebih dalam lagi mengenai cloud dan AWS.',
-      ],
-      [
-          'name' => 'Rina Santoso',
-          'user_image' => 'assets/rina.webp',
-          'rating' => 5,
-          'review' =>
-              'Materinya sangat komprehensif dan mudah dipahami. Saya sangat merekomendasikan kelas ini bagi pemula yang ingin belajar cloud computing.',
-      ],
-      [
-          'name' => 'Dewi Rahma',
-          'user_image' => 'assets/dewi.webp',
-          'rating' => 3,
-          'review' =>
-              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
-      ],
-      [
-          'name' => 'John',
-          'user_image' => 'assets/johndoe.webp',
-          'rating' => 3,
-          'review' =>
-              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
-      ],
-  ];
-@endphp
 @extends('layouts.app')
 @section('content')
   @include('partials.navbar')
@@ -162,7 +19,7 @@
                 d="M12.0009 18.26L4.94789 22.208L6.52289 14.28L0.587891 8.792L8.61489 7.84L12.0009 0.5L15.3869 7.84L23.4139 8.792L17.4789 14.28L19.0539 22.208L12.0009 18.26Z"
                 fill="#F59E0B"></path>
             </svg>
-            <span class="">5.0 • 35 Ulasan</span>
+            <span class="">{{$course->rating}} • {{$course->total_testimonial}}</span>
           </div>
           <div class="flex items-center gap-2.5">
             <img class="w-4 filter-primary" src="{{ asset('assets/user.svg') }}"
@@ -201,16 +58,36 @@
           class="w-full rounded-lg border border-primary/20 bg-primary/10 py-2.5 text-primary transition">
           Tonton Video Intro
         </button>
-        <a href="{{route('payment')}}"
-        id="confirm"
-        class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
-        Enroll Kelas
-        </a>
-        <a href="{{route('payment')}}"
-        id="confirm"
-        class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
-        Masuk ke Kelas
-        </a>
+        @guest
+            <a href="{{route('pricing')}}"
+            id="confirm"
+            class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
+            Enroll Kelas
+            </a>
+        @endguest
+
+        @auth
+            @if($course->is_enrolled == false)
+            <form action="{{ route('payment.enroll', ['id' => $course->id]) }}" method="POST">
+                @csrf  <!-- CSRF token for security -->
+                <button type="submit"
+                        id="confirm"
+                        class="w-full py-2 px-4 rounded-lg bg-primary text-white hover:bg-accent text-center">
+                    Enroll Kelas
+                </button>
+            </form>
+
+
+            @else
+                <a href="{{route('dashboard')}}"
+                id="confirm"
+                class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
+                Masuk ke Kelas
+                </a>
+            @endif
+        @endauth
+
+
       </div>
       <div
         class="flex justify-around border-b border-line px-5 pb-6 pt-10 text-sm">

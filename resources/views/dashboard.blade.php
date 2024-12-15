@@ -37,6 +37,7 @@
       </div>
       <!-- Plan Section -->
       <div class="mb-1.5 flex flex-col rounded-lg border border-line">
+
         <h2
           class="rounded-t-lg border-b border-line bg-gray-100 px-5 py-3.5 font-medium">
           Status Langganan
@@ -73,6 +74,9 @@
             <span>Aktivitas Belajar</span>
           </div>
           <!-- First Learning Item -->
+          @if ($courseUsers->isEmpty())
+            <h1 class="text-xl text-center text-primary">Belum ada Kursus yang diikuti.</h1>
+        @endif
           @foreach ($courseUsers as $courseUser)
             @continue($courseUser->progress != 100)
           <div
@@ -107,7 +111,7 @@
               <div
                 class="flex h-4 flex-row-reverse items-center justify-end rounded-lg text-xs font-semibold text-white transition-all duration-500 ease-in-out">
                 <span
-                  class="flex w-[40%] justify-center rounded-lg bg-emerald-500">{{$courseUser->progress}}%</span>
+                  class="flex w-[{{$courseUser->progress}}%] justify-center rounded-lg bg-emerald-500">{{$courseUser->progress}}%</span>
               </div>
             </div>
             <h3 class="text-seconday text-sm">
