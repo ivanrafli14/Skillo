@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@include('partials.navbar')
 @section('content')
+  @include('partials.navbar')
   <div class="mt-[100px] w-full">
     <div class="mx-auto max-w-[1280px] px-[calc(3.5vw+5px)]">
       <div class="flex flex-col">
@@ -78,7 +78,7 @@
                     ke kelas baru dan pembaruan.</p>
                 </div>
                 <a href="/subscribe"
-                  class="mt-2 w-full rounded-b-md bg-blue-500 px-6 py-4 text-center text-[14px] font-semibold leading-[150%] text-white transition duration-300 ease-in-out hover:bg-blue-600">
+                  class="mt-2 w-full rounded-b-md bg-primary px-6 py-4 text-center text-[14px] font-semibold leading-[150%] text-white transition duration-300 ease-in-out hover:accent">
                   Pilih Paket
                 </a>
               </div>
@@ -150,7 +150,7 @@
                     ke kelas baru dan pembaruan.</p>
                 </div>
                 <a href="/subscribe"
-                  class="mt-2 w-full rounded-b-md bg-blue-500 px-6 py-4 text-center text-[14px] font-semibold leading-[150%] text-white transition duration-300 ease-in-out hover:bg-blue-600">
+                  class="mt-2 w-full rounded-b-md bg-primary px-6 py-4 text-center text-[14px] font-semibold leading-[150%] text-white transition duration-300 ease-in-out hover:accent">
                   Pilih Paket
                 </a>
               </div>

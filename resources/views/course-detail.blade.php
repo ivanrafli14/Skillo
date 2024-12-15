@@ -82,11 +82,68 @@
           ],
       ],
   ];
+  $testimonials = [
+      [
+          'name' => 'Azkan Nawal',
+          'user_image' => 'assets/fajar.webp',
+          'rating' => 4,
+          'review' =>
+              'Walaupun level kelas ini adalah basic, tapi saya mendapatkan banyak knowledge baru terkait cloud dan AWS. Materi dasar ini membuat saya ingin belajar lebih dalam lagi mengenai cloud dan AWS.',
+      ],
+      [
+          'name' => 'Rina Santoso',
+          'user_image' => 'assets/rina.webp',
+          'rating' => 5,
+          'review' =>
+              'Materinya sangat komprehensif dan mudah dipahami. Saya sangat merekomendasikan kelas ini bagi pemula yang ingin belajar cloud computing.',
+      ],
+      [
+          'name' => 'Dewi Rahma',
+          'user_image' => 'assets/dewi.webp',
+          'rating' => 3,
+          'review' =>
+              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
+      ],
+      [
+          'name' => 'John',
+          'user_image' => 'assets/johndoe.webp',
+          'rating' => 3,
+          'review' =>
+              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
+      ],
+      [
+          'name' => 'Azkan Nawal',
+          'user_image' => 'assets/fajar.webp',
+          'rating' => 4,
+          'review' =>
+              'Walaupun level kelas ini adalah basic, tapi saya mendapatkan banyak knowledge baru terkait cloud dan AWS. Materi dasar ini membuat saya ingin belajar lebih dalam lagi mengenai cloud dan AWS.',
+      ],
+      [
+          'name' => 'Rina Santoso',
+          'user_image' => 'assets/rina.webp',
+          'rating' => 5,
+          'review' =>
+              'Materinya sangat komprehensif dan mudah dipahami. Saya sangat merekomendasikan kelas ini bagi pemula yang ingin belajar cloud computing.',
+      ],
+      [
+          'name' => 'Dewi Rahma',
+          'user_image' => 'assets/dewi.webp',
+          'rating' => 3,
+          'review' =>
+              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
+      ],
+      [
+          'name' => 'John',
+          'user_image' => 'assets/johndoe.webp',
+          'rating' => 3,
+          'review' =>
+              'Materinya bagus, namun perlu ada pembaruan di beberapa bagian agar lebih relevan dengan perkembangan terbaru.',
+      ],
+  ];
 @endphp
-
 @extends('layouts.app')
-@include('partials.navbar')
 @section('content')
+  @include('partials.navbar')
   <div class="w-full pt-40">
     <div class="mx-auto flex max-w-[1080px] flex-col px-[calc(3.5vw+5px)]">
       <div class="flex w-full items-center gap-8">
@@ -140,7 +197,7 @@
           data-content="testimoni">Testimoni</button>
       </div>
       <div id="content" class="mt-4 rounded-lg bg-white p-6">
-        <div class="content-item" id="deskripsi">
+        <div class="content-item hidden" id="deskripsi">
           <p class="mt-2">{{ $course->description }}</p>
         </div>
         <div class="content-item hidden" id="silabus">
@@ -172,13 +229,40 @@
             </div>
           @endforeach
         </div>
-        <div class="content-item hidden" id="testimoni">
-          <p class="mt-2">Berbagai pengalaman dari peserta kursus
-            sebelumnya.</p>
+        <div class="content-item hidden flex flex-col justify-center" id="testimoni">
+          <div class="cardTestimoni grid grid-cols-2 gap-4">
+            @foreach ($testimonials as $testimonial)
+              <div class="rounded border border-line p-4">
+                <div class="flex items-center gap-3 pb-2">
+                  <img src="{{ asset($testimonial['user_image']) }}"
+                    alt="user" class="w-12">
+                  <div class="flex flex-col">
+                    <h3 class="pb-1">{{ $testimonial['name'] }}</h3>
+                    <div class="flex gap-1">
+                      @for ($i = 0; $i < 5; $i++)
+                        @if ($i < $testimonial['rating'])
+                          <img src="{{ asset('assets/star-fill.png') }}"
+                            class="w-4" alt="star">
+                        @else
+                          <img src="{{ asset('assets/star-border.png') }}"
+                            class="w-4" alt="star">
+                        @endif
+                      @endfor
+                    </div>
+                  </div>
+                </div>
+                <p class="text-sm leading-relaxed">{{ $testimonial['review'] }}
+                </p>
+              </div>
+            @endforeach
+          </div>
+          <button id="showMore" style="display: none;"
+            class="mt-4 w-full rounded-lg bg-primary px-4 py-2 text-white">
+            Lihat Lebih Banyak
+          </button>
         </div>
       </div>
     </div>
-  </div>
   </div>
   @include('partials.footer')
 @endsection
@@ -220,6 +304,28 @@
         document.getElementById(targetId).classList.remove(
           'hidden');
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const parent = document.querySelector(".cardTestimoni");
+      const children = Array.from(parent.children);
+      const maxVisible = 4;
+      const showMoreButton = document.getElementById("showMore");
+
+      if (children.length > maxVisible) {
+        children.slice(maxVisible).forEach((child) => {
+          child.style.display = "none";
+        });
+        showMoreButton.style.display = "inline-block";
+
+        showMoreButton.addEventListener("click", () => {
+          children.forEach((child) => {
+            child.style.display = "block";
+          });
+          showMoreButton.style.display = "none";
+        });
+      }
     });
   </script>
 @endsection

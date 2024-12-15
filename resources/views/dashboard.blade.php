@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@include('partials.navbar')
 @section('content')
+@include('partials.navbar')
   @if (session('success'))
     <div id="alert"
       class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-green-200 px-3 py-3.5 text-green-800 shadow-md">

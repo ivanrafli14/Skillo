@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@include('partials.navbar')
 @section('content')
+@include('partials.navbar')
   <div class="w-full pt-40">
     <div
       class="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-[80px] px-[calc(3.5vw+5px)]">

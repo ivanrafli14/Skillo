@@ -40,7 +40,7 @@
 @endphp
 
 <div
-  class="mx-auto flex max-w-[1280px] flex-col gap-[30px] px-[calc(3.5vw+5px)] pt-[60px]">
+  class="mx-auto flex max-w-[1280px] flex-col gap-[30px] px-[calc(3.5vw+5px)] pt-[60px]" id="benefits">
   <div class="flex flex-col">
     <h2 class="flex-grow pb-2 text-3xl font-semibold text-secondary">
       Benefits</h2>
@@ -51,7 +51,7 @@
         relevan dan bermanfaat.
       </p>
       <div class="flex items-end justify-end">
-        <a href="/benefits"
+        <a href="/#benefits"
           class="text-decoration-none whitespace-nowrap rounded-lg border border-line bg-third px-[20px] py-[14px] text-center text-sm font-normal text-secondary transition ease-in-out hover:bg-primary hover:font-light hover:text-white">
           Lihat Selengkapnya
         </a>
