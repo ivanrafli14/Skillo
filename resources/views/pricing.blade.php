@@ -149,7 +149,7 @@
                   <p class="text-[14px] leading-[150%] text-gray-700">Akses awal
                     ke kelas baru dan pembaruan.</p>
                 </div>
-                <a href="/subscribe"
+                <a href="{{route('payment')}}"
                   class="mt-2 w-full rounded-b-md bg-primary px-6 py-4 text-center text-[14px] font-semibold leading-[150%] text-white transition duration-300 ease-in-out hover:accent">
                   Pilih Paket
                 </a>

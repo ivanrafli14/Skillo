@@ -5,19 +5,16 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [DashboardController::class, 'index'])->name('home');
 
-Route::get('/pricing', function () {
-    return view('pricing');
-  });
-
-Route::get('/payment', function () {
-    return view('payment');
-  });
+Route::get('/pricing', [PaymentController::class, 'pricing'])->name('pricing');
+Route::get('/payment', [PaymentController::class, 'payment'])->name('payment')->middleware(['auth', 'verified']);
+Route::post('/payment/{id}', [PaymentController::class, 'store'])->name('payment.store');
 
 Route::get('/classroom',[CourseController::class, 'syllabus'])->name('syllabus');
 

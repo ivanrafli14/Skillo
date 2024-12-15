@@ -50,7 +50,7 @@
             sekarang.
           </p>
           <a class="dashboard__plan-cta whitespace-nowrap rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
-            href="/subscribe">Pilih Paket</a>
+            href="{{route('payment')}}">Pilih Paket</a>
         </div>
       </div>
       <!-- Activity Section -->
