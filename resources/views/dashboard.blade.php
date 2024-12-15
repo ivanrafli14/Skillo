@@ -65,7 +65,6 @@
           </div>
         @endif
 
-
       </div>
       <!-- Activity Section -->
       <div class="flex gap-7">
