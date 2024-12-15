@@ -66,7 +66,7 @@
     <div class="relative mx-auto max-w-[960px] bg-white px-[calc(3.5vw+5px)]">
       <video id="video" class="w-full rounded-lg border border-line"
         poster="{{ asset('assets/trailer-thumbnail.webp') }}">
-        <source src="https://asset.cloudinary.com/dukifna6a/1cb4131805960cf09fc3a927c2dab0a4" type="video/mp4">
+        <source src="{{ asset('assets/trailer-video.mp4') }}" type="video/mp4">
       </video>
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <button id="playButton"
@@ -110,6 +110,8 @@
       }
       requestAnimationFrame(animateCounter);
     });
+  </script>
+  <script>
     const video = document.getElementById("video");
     const playButton = document.getElementById("playButton");
     const pauseButton = document.getElementById("pauseButton");

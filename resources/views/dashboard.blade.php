@@ -50,7 +50,8 @@
           <a class="whitespace-nowrap rounded-lg bg-primary px-5 py-2 text-sm font-medium text-white transition hover:bg-accent"
             href="/subscribe">Pilih Paket</a>
         </div>
-        <div class="flex hidden items-center justify-between bg-white px-5 py-2.5">
+        <div
+          class="flex hidden items-center justify-between bg-white px-5 py-2.5">
           <p class="text-sm">
             <span class="font-semibold text-primary">Paket
               Premium Tahunan:</span> Akses penuh semua kelas premium
