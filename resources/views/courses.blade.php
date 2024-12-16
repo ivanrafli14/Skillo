@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="flex items-center gap-2 pb-6">
+      <div class="flex items-center flex-wrap gap-2 pb-6">
         <a class="activated active-category {{ request('category_id') ? '' : 'bg-primary/20 text-primary' }} cursor-pointer rounded-lg border border-line px-4 py-2.5 text-sm transition hover:bg-primary/20"
           href="{{ route('courses.index') }}">
           Semua

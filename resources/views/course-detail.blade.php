@@ -3,9 +3,9 @@
   @include('partials.navbar')
   <div class="w-full pt-40">
     <div class="mx-auto flex max-w-[1080px] flex-col px-[calc(3.5vw+5px)]">
-      <div class="flex w-full items-center gap-8">
+      <div class="flex w-full flex-col md:flex-row items-center gap-8">
         <img src="{{ $course->thumbnail_url }}" alt="Course Thumbnail"
-          class="h-[240px] w-auto object-cover max-w-[360px] rounded-lg border border-line" />
+          class="h-[240px] object-cover max-w-[360px] rounded-lg border border-line" />
         <div class="flex flex-col gap-1.5">
           <p
             class="w-fit rounded-full border border-primary px-4 py-1.5 text-sm font-medium text-primary">
@@ -105,9 +105,9 @@
         <div class="content-item hidden" id="silabus">
           {{-- @dd($course->syllabusses) --}}
           @foreach ($course->syllabusses as $item)
-            <div class="dropdown border-b">
+            <div class="dropdown border-b pt-3">
               <button
-                class="dropdown-toggle flex w-full items-center justify-between px-4 py-3 text-left">
+                class="dropdown-toggle flex w-full items-center justify-between text-left">
                 <div class="flex flex-col gap-1.5">
                   <span
                     class="font-medium text-secondary">{{ $item->title }}</span>
@@ -139,7 +139,7 @@
           @if (count($course->testimonials) === 0)
             <p class="text-center">Belum ada testimoni</p>
           @else
-            <div class="cardTestimoni grid grid-cols-2 gap-4">
+            <div class="cardTestimoni grid grid-cols-1 md:grid-cols-2 gap-4">
               @foreach ($course->testimonials as $testimonial)
                 <div class="rounded border border-line p-4">
                   <div class="flex items-center gap-3 pb-2">
