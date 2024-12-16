@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('video_url');
             $table->integer('duration');
+            $table->string('slug');
         });
     }
 

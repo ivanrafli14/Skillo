@@ -2,7 +2,7 @@
   class="navbar fixed top-0 z-10 w-full border-b border-line transition-colors duration-100 ease-in-out">
   <div
     class="promotion mx-auto flex justify-center bg-primary transition-all duration-200 ease-in-out">
-    <a href="/pricing"
+    <a href="{{route('payment.pricing')}}"
       class="flex max-w-[1400px] items-center gap-2 px-[calc(3.5vw+5px)] py-[12px] text-xs font-medium text-white hover:underline">
       Langganan Kursus Sekarang, Diskon Kursus Hingga 50% <img
         src="{{ asset('assets/star.svg') }}"> </a>
@@ -17,7 +17,7 @@
       <div class="hidden items-center gap-[50px] text-sm md:flex">
         <a href="/" class="transition hover:text-primary">Home</a>
         <a href="/courses" class="transition hover:text-primary">Kursus</a>
-        <a href="/pricing" class="transition hover:text-primary">Langganan</a>
+        <a href="{{route('payment.pricing')}}" class="transition hover:text-primary">Langganan</a>
         <div class="group relative">
           <div
             class="group flex items-center justify-center gap-2 transition group-hover:text-primary">
@@ -31,18 +31,18 @@
                 class="bg-primary/90 p-3 text-center text-sm font-medium text-white">
                 Eksplor Kategori Kursus</h2>
               <div class="grid w-full grid-cols-2 gap-3 px-3 py-3">
-                <a href="/courses/1"
+                <a href="/courses?category_id=1"
                   class="block border border-line px-6 py-2 text-sm hover:text-primary">Frontend</a>
-                <a href="/courses/4"
+                <a href="/courses?category_id=4"
                   class="block border border-line px-6 py-2 text-sm hover:text-primary">DevOps/Infra</a>
-                <a href="/courses/2"
+                <a href="/courses?category_id=2"
                   class="block border border-line px-6 py-2 text-sm hover:text-primary">Backend</a>
-                <a href="/courses/6"
+                <a href="/courses?category_id=6"
                   class="block border border-line px-6 py-2 text-sm hover:text-primary">Mobile
                   Development</a>
-                <a href="/courses/3"
+                <a href="/courses?category_id=3"
                   class="block border border-line px-6 py-2 text-sm hover:text-primary">Fullstack</a>
-                <a href="/courses/5"
+                <a href="/courses?category_id=5"
                   class="block border border-line px-6 py-2 text-sm hover:text-primary">Game
                   Development</a>
               </div>
@@ -55,7 +55,7 @@
       <div class="group relative">
         <div
           class="flex items-center justify-center gap-4 border border-line px-3 py-1.5 transition group-hover:text-primary">
-          <img src="{{ asset('assets/fajar.webp') }}" class="w-8 rounded-full"
+          <img src="{{ auth()->user()->photo_url }}" class="w-8 rounded-full"
             alt="photo">
           <h3
             class="hidden text-sm text-secondary group-hover:text-primary md:flex">

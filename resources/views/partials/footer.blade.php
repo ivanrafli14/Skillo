@@ -27,7 +27,7 @@
           <a class="text-xs transition hover:text-primary md:text-sm"
             href="/">Home</a>
           <a class="text-xs transition hover:text-primary md:text-sm"
-            href="/course">Kursus</a>
+            href="/courses">Kursus</a>
           <a class="text-xs transition hover:text-primary md:text-sm"
             href="/subscribe">Langganan</a>
         </div>

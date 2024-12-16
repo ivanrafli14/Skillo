@@ -24,9 +24,9 @@
         </h3>
         <div class="flex flex-col gap-3 md:flex-row md:gap-5">
           <a class="w-full rounded-lg bg-primary px-4 py-3 text-center text-sm font-medium text-white transition hover:bg-accent md:w-auto md:px-5"
-            href="/courses">Telusuri Kelas</a>
+            href="{{route('courses.index')}}">Telusuri Kelas</a>
           <a class="w-full rounded-lg border border-line bg-third px-4 py-3 text-center text-sm font-medium transition hover:bg-white md:w-auto md:px-5"
-            href="/pricing">Cek Penawaran</a>
+            href="{{route('payment.pricing')}}">Cek Penawaran</a>
         </div>
       </div>
     </div>

@@ -17,12 +17,13 @@ class UserSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
 
-        for($i = 0; $i < 10; $i++) {
+        $url = ['https://cdn-icons-png.flaticon.com/512/4645/4645949.png', 'https://res.cloudinary.com/dukifna6a/image/upload/v1734323043/Andi_ew4xnk.webp', 'https://res.cloudinary.com/dukifna6a/image/upload/v1734323043/rina_jpkjlb.webp', 'https://res.cloudinary.com/dukifna6a/image/upload/v1734247490/fajar_hvm7p0.webp'];
+        for($i = 0; $i < 50; $i++) {
             DB::table('users')->insert([
                 'name' => $faker->name(),
                 'email' => $faker->unique()->safeEmail(),
                 'password' => Hash::make('password'),
-                'photo_url' => 'https://cdn-icons-png.flaticon.com/512/4645/4645949.png',
+                'photo_url' => $faker->randomElement($url),
                 'subscription' => $faker->randomElement(['free', 'premium']),
             ]);
         }
