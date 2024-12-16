@@ -1,7 +1,6 @@
 <div
   class="mx-auto flex max-w-[1280px] flex-col gap-5 px-4 pt-8 sm:gap-[30px] sm:px-[calc(3.5vw+5px)] sm:pt-[60px]">
 
-  <!-- Header Section -->
   <div class="flex flex-col">
     <h2 class="flex-grow pb-2 text-2xl font-semibold text-secondary md:text-3xl">
       Kursus
@@ -51,15 +50,11 @@
           <p class="text-sm leading-relaxed sm:text-base">
             {{ Str::limit($course->description, 150, '...') }}
           </p>
-<<<<<<< HEAD
-
           <a href="/course-detail"
             class="flex justify-center rounded-lg border border-line bg-third px-4 py-2 text-xs font-medium transition duration-300 ease-in-out hover:bg-primary hover:font-normal hover:text-white sm:px-6 sm:py-3 sm:text-sm">
-=======
+
           <a href="{{route('courses.show', ['slug' => $course->slug])}}"
             class="flex justify-center rounded-lg border border-line bg-third px-6 py-3 text-sm font-medium transition duration-300 ease-in-out hover:bg-primary hover:font-normal hover:text-white">
->>>>>>> main
-            Mulai Sekarang
           </a>
         </div>
       @endforeach
