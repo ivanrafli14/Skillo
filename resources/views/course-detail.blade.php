@@ -19,12 +19,7 @@
                 d="M12.0009 18.26L4.94789 22.208L6.52289 14.28L0.587891 8.792L8.61489 7.84L12.0009 0.5L15.3869 7.84L23.4139 8.792L17.4789 14.28L19.0539 22.208L12.0009 18.26Z"
                 fill="#F59E0B"></path>
             </svg>
-<<<<<<< HEAD
-            <span class="">{{ $course->rating }} •
-              {{ $course->total_testimonial }}</span>
-=======
             <span class="">{{$course->rating}} • {{$course->total_testimonial}} Ulasan</span>
->>>>>>> main
           </div>
           <div class="flex items-center gap-2.5">
             <img class="w-4 filter-primary" src="{{ asset('assets/user.svg') }}"
