@@ -19,7 +19,7 @@ class TestimonialSeeder extends Seeder
             DB::table('testimonials')->insert([
                 'user_id' => $faker->numberBetween(1, 10),
                 'course_id' => $faker->numberBetween(1, 6),
-                'rating' => $faker->numberBetween(0, 5),
+                'rating' => $faker->numberBetween(4, 5),
                 'content' => $faker->sentence(15),
             ]);
         }

@@ -4,12 +4,13 @@
     <div class="relative flex w-full">
       <div class="flex w-3/4 px-[calc(2.5vw+5px)]">
         <div class="left-0 w-full overflow-hidden">
-          <h2 class="bg-black/10 py-[calc(3.5vh+5px)] text-line"> Data Science
-            dengan Python: Dari A sampai Z
+          <h2 class="bg-black/10 py-[calc(3.5vh+5px)] text-line"> {{$course->name}}
           </h2>
           <div class="relative aspect-video w-full">
-            <video id="video" class="h-full w-full object-contain"
-              src="{{ asset('assets/trailer-video.mp4') }}"></video>
+            <video id="video" class="h-full w-full object-contain" controls>
+                <source src="{{$video}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div id="controls"
               class="absolute bottom-0 left-0 right-0 bg-zinc-900 p-4 text-white">
               <div class="flex items-center justify-between">
@@ -38,27 +39,27 @@
         </div>
       </div>
       <aside class="min-h-screen w-1/4 bg-third">
-        @foreach ($syllabus as $item)
+        @foreach ($course->syllabusses as $syllabus)
           <div class="dropdown border-b">
             <button
               class="dropdown-toggle flex w-full items-center justify-between px-4 py-3 text-left">
               <div class="flex flex-col gap-1.5">
-                <span class="font text-sm">{{ $item['title'] }}</span>
-                <span class="text-xs">{{ $item['description'] }}</span>
+                <span class="font text-sm">{{ $syllabus->title }}</span>
               </div>
               <img class="ml-3 w-2 transition hover:filter-primary"
-                src="{{ $item['icon'] }}" alt="dropdown icon">
+                src="{{ asset('assets/dropdown.png')}}" alt="dropdown icon">
             </button>
             <div class="dropdown-content hidden bg-third px-6 py-3">
               <ul class="space-y-2">
-                @foreach ($item['materials'] as $material)
-                  <li class="flex items-center justify-center text-xs">
-                    <img class="mr-2 flex w-2.5 filter-primary"
-                      src="{{ $material['icon'] }}" alt="material icon">
-                    <div class="flex w-full items-center justify-between gap-2">
-                      <span>{{ $material['title'] }}</span>
-                      <span>{{ $material['duration'] }}</span>
-                    </div>
+                @foreach ($syllabus->lessons as $lesson)
+                <li class="flex items-center justify-center text-xs hover:bg-gray-100 cursor-pointer">
+                    <a href="{{ route('courses.classroom', ['id' => $course->id, 'lesson_slug' => $lesson->slug]) }}" class="flex items-center w-full text-inherit no-underline">
+                      <img class="mr-2 flex w-2.5 filter-primary" src="{{ asset('assets/play.png') }}" alt="material icon">
+                      <div class="flex w-full items-center justify-between gap-2">
+                        <span>{{ $lesson->title }}</span>
+                        <span>{{ $lesson->duration }} Menit</span>
+                      </div>
+                    </a>
                   </li>
                 @endforeach
               </ul>

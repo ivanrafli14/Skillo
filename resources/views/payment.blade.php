@@ -162,7 +162,7 @@
               Status langganan Anda telah terverifikasi, upgrade skill Lo dengan
               semua kursus di Skillo sekarang
             </p>
-            <a href="/dashboard"
+            <a href="{{route('dashboard')}}"
               class="mx-auto mb-4 block w-3/4 rounded bg-primary px-4 py-2 text-white hover:bg-accent">
               Menuju Dashboard
             </a>

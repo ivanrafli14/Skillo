@@ -11,6 +11,7 @@ class Lesson extends Model
         'syllabus_id',
         'title',
         'duration',
+        'slug',
         'video_url',
     ];
 

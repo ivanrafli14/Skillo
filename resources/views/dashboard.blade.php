@@ -119,7 +119,7 @@
             </h3>
           </div>
           <a class="flex items-center justify-end gap-2 whitespace-nowrap rounded-lg bg-primary px-3 py-2 text-sm text-white transition hover:bg-accent"
-            href="{{route('classroom')}}" id="certificateSvg">
+            href="{{route('courses.classroom', ['id' => $courseUser->course_id, 'lesson_slug' => $courseUser->course->syllabusses[0]->lessons[0]->slug])}}" id="certificateSvg">
             Lanjutkan Kursus
           </a>
         </div>
