@@ -10,7 +10,7 @@
         yang lebih baik.
       </p>
       <div class="flex items-end justify-end">
-        <a href="/benefits"
+        <a href="/courses"
           class="text-decoration-none whitespace-nowrap rounded-lg border border-line bg-third px-[20px] py-[14px] text-center text-sm text-secondary transition ease-in-out hover:bg-primary hover:font-light hover:text-white">
           Lihat Selengkapnya
         </a>
@@ -40,7 +40,7 @@
           <p class="leading-relaxed">
             {{ Str::limit($course->description, 150, '...') }}
           </p>
-          <a href="/course-detail"
+          <a href="{{route('courses.show', ['slug' => $course->slug])}}"
             class="flex justify-center rounded-lg border border-line bg-third px-6 py-3 text-sm font-medium transition duration-300 ease-in-out hover:bg-primary hover:font-normal hover:text-white">
             Mulai Sekarang
           </a>

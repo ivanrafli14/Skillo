@@ -22,9 +22,9 @@
         </h3>
         <div class="flex gap-5">
           <a class="rounded-lg bg-primary px-5 py-3 text-sm font-medium text-white transition hover:bg-accent"
-            href="/courses">Telusuri Kelas</a>
+            href="{{route('courses.index')}}">Telusuri Kelas</a>
           <a class="rounded-lg border border-line bg-third px-5 py-3 text-sm font-medium transition hover:bg-white"
-            href="/pricing">Cek Penawaran</a>
+            href="{{route('payment.pricing')}}">Cek Penawaran</a>
         </div>
       </div>
     </div>

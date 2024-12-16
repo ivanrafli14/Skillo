@@ -42,23 +42,23 @@ class Course extends Model
     public function getTotalVideoAttribute()
     {
         return $this->syllabusses()
-        ->with('lessons') // Eager load lessons
+        ->with('lessons')
         ->get()
         ->flatMap(function ($syllabus) {
-            return $syllabus->lessons; // Flatten lessons from all syllabuses
+            return $syllabus->lessons;
         })
-        ->count(); // Sum the 'duration' field from lessons
+        ->count();
     }
 
     public function getTotalDurationAttribute()
     {
         return $this->syllabusses()
-        ->with('lessons') // Eager load lessons
+        ->with('lessons')
         ->get()
         ->flatMap(function ($syllabus) {
-            return $syllabus->lessons; // Flatten lessons from all syllabuses
+            return $syllabus->lessons;
         })
-        ->sum('duration'); // Sum the 'duration' field from lessons
+        ->sum('duration');
     }
 
 
