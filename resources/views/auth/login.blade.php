@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('partials.navbar')
+  @include('partials.navbar')
   @if (session('message'))
     <div id="alert"
       class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-green-200 px-3 py-3.5 text-green-800 shadow-md">
@@ -25,29 +25,31 @@
     <div
       class="mx-auto flex max-w-[1280px] flex-wrap items-center justify-center gap-[80px] px-[calc(3.5vw+5px)]">
       <form action="{{ route('login.submit') }}" method="POST"
-        class="flex w-[540px] flex-shrink-0 flex-col rounded-[10px] px-10 pb-10">
+        class="flex max-w-[540px] flex-col">
         @csrf
         <div class="mb-8 flex flex-col gap-5">
-          <h1 class="text-center text-[32px] font-semibold">
+          <h1
+            class="text-center text-xl font-semibold text-secondary md:text-[32px]">
             Masuk
           </h1>
-          <h2 class="text-center text-[16px] text-neutral">
+          <h2 class="text-center text-sm md:text-base">
             Selamat datang kembali, mari belajar bersama Skillo
           </h2>
         </div>
-        <label class="mb-3 text-[16px] font-medium">Email</label>
+        <label class="mb-3 text-sm font-medium md:text-base">Email</label>
         <input
-          class="{{ $errors->has('email') ? 'border-red-500' : '' }} mb-2 flex items-center gap-2 rounded-lg border border-line bg-third p-3 text-[16px] text-neutral placeholder:text-neutral placeholder:opacity-70 focus:outline-primary"
+          class="{{ $errors->has('email') ? 'border-red-500' : '' }} placeholder: mb-2 flex items-center gap-2 rounded-lg border border-line bg-third p-3 text-sm font-medium placeholder:opacity-70 focus:outline-primary md:text-base"
           placeholder="Masukkan Email" name="email" />
         @error('email')
           <span class="text-red-500">{{ $message }}</span>
         @enderror
 
-        <label class="mb-3 mt-3 text-[16px] font-medium">Kata Sandi</label>
+        <label class="mb-3 mt-3 text-sm font-medium md:text-base">Kata
+          Sandi</label>
         <div
-          class="{{ $errors->has('password') ? 'border-red-500' : '' }} mb-4 flex items-center justify-between rounded-lg border border-line bg-third text-[16px] text-neutral">
+          class="{{ $errors->has('password') ? 'border-red-500' : '' }} mb-4 flex items-center justify-between rounded-lg border border-line bg-third text-sm md:text-base">
           <input id="password" type="password"
-            class="flex-grow rounded-lg bg-third p-3 text-[16px] outline-primary"
+            class="flex-grow rounded-lg bg-third p-3 text-sm outline-primary md:text-base"
             placeholder="Masukkan Kata Sandi" name="password" />
           <div class="px-3">
             <img class="w-5 cursor-pointer" src="{{ asset('assets/show.png') }}"
@@ -74,7 +76,7 @@
           Masuk
         </a>
         <p
-          class="flex items-center justify-center gap-[6px] text-center text-[16px] text-secondary">
+          class="flex items-center justify-center gap-[6px] text-center md:text-base text-sm text-secondary">
           Belum punya akun?
           <a href="{{ route('register.form') }}"
             class="flex items-center text-secondary transition-colors hover:text-accent">

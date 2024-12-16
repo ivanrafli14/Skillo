@@ -4,7 +4,7 @@
     class="promotion mx-auto flex justify-center bg-primary transition-all duration-200 ease-in-out">
     <a href="{{route('payment.pricing')}}"
       class="flex max-w-[1400px] items-center gap-2 px-[calc(3.5vw+5px)] py-[12px] text-xs font-medium text-white hover:underline">
-      Langganan Kelas Sekarang, Diskon Kelas Hingga 50% <img
+      Langganan Kursus Sekarang, Diskon Kursus Hingga 50% <img
         src="{{ asset('assets/star.svg') }}"> </a>
   </div>
   <div
@@ -14,7 +14,7 @@
         <img src="{{ asset('assets/brand-logo.png') }}" alt="brand-logo"
           class="w-11" />
       </a>
-      <div class="flex items-center gap-[50px] text-sm">
+      <div class="hidden items-center gap-[50px] text-sm md:flex">
         <a href="/" class="transition hover:text-primary">Home</a>
         <a href="/courses" class="transition hover:text-primary">Kursus</a>
         <a href="{{route('payment.pricing')}}" class="transition hover:text-primary">Langganan</a>
@@ -57,17 +57,22 @@
           class="flex items-center justify-center gap-4 border border-line px-3 py-1.5 transition group-hover:text-primary">
           <img src="{{ auth()->user()->photo_url }}" class="w-8 rounded-full"
             alt="photo">
-          <h3 class="text-sm text-secondary group-hover:text-primary">
+          <h3
+            class="hidden text-sm text-secondary group-hover:text-primary md:flex">
             {{ auth()->user()->name }}</h3>
           <img src="{{ asset('assets/dropdown.png') }}"
             class="w-3 transition-transform duration-100 group-hover:rotate-180 group-hover:filter-primary"
             alt="dropdown">
         </div>
         <form action="{{ route('logout.submit') }}" method="POST"
-          class="fixed -top-96 -translate-y-4 border-line bg-white p-1.5 opacity-0 transition duration-100 group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100">
+          class="fixed -top-96 right-0 mr-5 -translate-y-4 border-line bg-white p-1.5 opacity-0 transition duration-100 group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100 md:right-auto md:mr-auto">
           <div class="flex flex-col bg-white shadow-custom">
             @csrf
             <div class="flex w-fit flex-col items-center justify-center gap-1.5">
+              <a href="/courses"
+                class="w-full border border-line p-[49px] py-2 text-center text-sm hover:text-primary md:hidden">Kursus</a>
+              <a href="/pricing"
+                class="border border-line p-[49px] py-2 text-sm hover:text-primary md:hidden">Langganan</a>
               <a href="/dashboard"
                 class="border border-line p-[49px] py-2 text-sm hover:text-primary">Dashboard</a>
               <button type="submit"
@@ -79,11 +84,40 @@
         </form>
       </div>
     @else
-      <div class="flex items-center gap-8">
+      <div class="hidden items-center gap-8 md:flex">
         <a href="{{ route('register.form') }}"
           class="text-sm hover:text-primary">Daftar</a>
         <a href="{{ route('login.form') }}"
           class="rounded-lg bg-primary px-6 py-2.5 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-accent">Masuk</a>
+      </div>
+      <div class="group relative block md:hidden">
+        <div class="group px-3 py-1.5 transition group-hover:text-primary">
+          <button id="hamburger" class="flex flex-col gap-1.5">
+            <span
+              class="block h-[2px] w-6 bg-neutral transition-transform group-hover:bg-primary"></span>
+            <span
+              class="block h-[2px] w-6 bg-neutral transition-transform group-hover:bg-primary"></span>
+            <span
+              class="block h-[2px] w-6 bg-neutral transition-transform group-hover:bg-primary"></span>
+          </button>
+        </div>
+        <form action="{{ route('logout.submit') }}" method="POST"
+          class="fixed -top-96 right-0 mr-5 -translate-y-4 border-line bg-white p-1.5 opacity-0 transition duration-100 group-hover:top-auto group-hover:translate-y-0 group-hover:opacity-100 md:right-auto md:mr-auto">
+          <div class="flex flex-col bg-white shadow-custom">
+            <div class="flex w-fit flex-col items-center justify-center gap-1.5">
+              <a href="/courses"
+                class="w-full border border-line p-[49px] py-2 text-center text-sm hover:text-primary md:hidden">Kursus</a>
+              <a href="/pricing"
+                class="border border-line p-[49px] py-2 text-sm hover:text-primary md:hidden">Langganan</a>
+              <a href="/dashboard"
+                class="border border-line p-[49px] py-2 text-sm hover:text-primary">Dashboard</a>
+              <button type="submit"
+                class="bg-primary px-16 py-2 text-sm text-white hover:bg-red-600">
+                Logout
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     @endauth
   </div>

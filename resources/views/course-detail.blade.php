@@ -3,9 +3,9 @@
   @include('partials.navbar')
   <div class="w-full pt-40">
     <div class="mx-auto flex max-w-[1080px] flex-col px-[calc(3.5vw+5px)]">
-      <div class="flex w-full items-center gap-8">
+      <div class="flex w-full flex-col items-center gap-8 md:flex-row">
         <img src="{{ $course->thumbnail_url }}" alt="Course Thumbnail"
-          class="h-[240px] w-auto object-cover max-w-[360px] rounded-lg border border-line" />
+          class="h-[240px] max-w-[360px] rounded-lg border border-line object-cover" />
         <div class="flex flex-col gap-1.5">
           <p
             class="w-fit rounded-full border border-primary px-4 py-1.5 text-sm font-medium text-primary">
@@ -19,7 +19,12 @@
                 d="M12.0009 18.26L4.94789 22.208L6.52289 14.28L0.587891 8.792L8.61489 7.84L12.0009 0.5L15.3869 7.84L23.4139 8.792L17.4789 14.28L19.0539 22.208L12.0009 18.26Z"
                 fill="#F59E0B"></path>
             </svg>
+<<<<<<< HEAD
+            <span class="">{{ $course->rating }} •
+              {{ $course->total_testimonial }}</span>
+=======
             <span class="">{{$course->rating}} • {{$course->total_testimonial}} Ulasan</span>
+>>>>>>> main
           </div>
           <div class="flex items-center gap-2.5">
             <img class="w-4 filter-primary" src="{{ asset('assets/user.svg') }}"
@@ -53,40 +58,35 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-around gap-2.5 pt-6">
+      <div class="flex w-full items-center gap-2.5 pt-6">
         <button id="openModalButton"
-          class="w-full rounded-lg border border-primary/20 bg-primary/10 py-2.5 text-primary transition">
+          class="w-1/2 rounded-lg border border-primary/20 bg-primary/10 py-2.5 text-primary">
           Tonton Video Intro
         </button>
         @guest
-            <a href="{{route('payment.pricing')}}"
-            id="confirm"
-            class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
+          <a href="{{ route('payment.pricing') }}" id="confirm"
+            class="w-1/2 rounded-lg bg-primary py-2 text-center text-white hover:bg-accent">
             Enroll Kelas
-            </a>
+          </a>
         @endguest
 
         @auth
-            @if($course->is_enrolled == false)
-            <form action="{{ route('payment.enroll', ['id' => $course->id]) }}" method="POST">
-                @csrf  <!-- CSRF token for security -->
-                <button type="submit"
-                        id="confirm"
-                        class="w-full py-2 px-4 rounded-lg bg-primary text-white hover:bg-accent text-center">
-                    Enroll Kelas
-                </button>
+          @if ($course->is_enrolled == false)
+            <form action="{{ route('payment.enroll', ['id' => $course->id]) }}"
+              method="POST" class="w-1/2">
+              @csrf <!-- CSRF token for security -->
+              <button type="submit" id="confirm"
+                class="w-full rounded-lg bg-primary px-4 py-2 text-center text-white hover:bg-accent">
+                Enroll Kelas
+              </button>
             </form>
-
-
-            @else
-                <a href="{{route('dashboard')}}"
-                id="confirm"
-                class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
-                Masuk ke Kelas
-                </a>
-            @endif
+          @else
+            <a href="{{ route('dashboard') }}" id="confirm"
+              class="w-1/2 rounded-lg bg-primary py-2 text-center text-white hover:bg-accent">
+              Masuk ke Kelas
+            </a>
+          @endif
         @endauth
-
 
       </div>
       <div
@@ -105,9 +105,9 @@
         <div class="content-item hidden" id="silabus">
           {{-- @dd($course->syllabusses) --}}
           @foreach ($course->syllabusses as $item)
-            <div class="dropdown border-b">
+            <div class="dropdown border-b pt-3">
               <button
-                class="dropdown-toggle flex w-full items-center justify-between px-4 py-3 text-left">
+                class="dropdown-toggle flex w-full items-center justify-between text-left">
                 <div class="flex flex-col gap-1.5">
                   <span
                     class="font-medium text-secondary">{{ $item->title }}</span>
@@ -139,7 +139,7 @@
           @if (count($course->testimonials) === 0)
             <p class="text-center">Belum ada testimoni</p>
           @else
-            <div class="cardTestimoni grid grid-cols-2 gap-4">
+            <div class="cardTestimoni grid grid-cols-1 gap-4 md:grid-cols-2">
               @foreach ($course->testimonials as $testimonial)
                 <div class="rounded border border-line p-4">
                   <div class="flex items-center gap-3 pb-2">

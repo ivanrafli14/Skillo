@@ -27,42 +27,42 @@
   ];
 @endphp
 
-<div
-  class="mx-auto flex max-w-[1280px] flex-col gap-[30px] px-[calc(3.5vw+5px)] pt-[60px]">
+<div class="mx-auto flex max-w-[1280px] flex-col gap-5 md:gap-[30px] px-4 md:px-[calc(3.5vw+5px)] pt-8 md:pt-[60px]">
   <div class="flex flex-col">
-    <h2 class="flex-grow pb-2 text-3xl font-semibold text-secondary">
-      Testimoni</h2>
-    <div class="flex gap-[250px]">
-      <p class="flex-grow leading-relaxed">
+    <h2 class="flex-grow pb-2 text-2xl md:text-3xl font-semibold text-secondary">
+      Testimoni
+    </h2>
+    <div class="flex flex-col gap-3 md:flex-row md:gap-[250px]">
+      <p class="flex-grow text-sm md:text-base leading-relaxed">
         Lihat bagaimana Skillo mengubah banyak orang. Kami senang
-        mendengar kisah
-        sukses dari para pelajar yang telah meraih pencapaian setelah
+        mendengar kisah sukses dari para pelajar yang telah meraih pencapaian setelah
         mengikuti kelas yang kami tawarkan.
       </p>
-      <div class="flex items-end justify-end">
+      <div class="flex items-center md:items-end justify-center md:justify-end">
         <a href="/benefits"
-          class="text-decoration-none whitespace-nowrap rounded-lg border border-line bg-third px-[20px] py-[14px] text-center text-sm text-secondary ease-in-out hover:bg-primary hover:font-light hover:text-white transition">
+          class="text-decoration-none whitespace-nowrap rounded-lg border border-line bg-third px-4 md:px-[20px] py-3 md:py-[14px] text-center text-sm text-secondary transition ease-in-out hover:bg-primary hover:font-light hover:text-white w-full md:w-auto">
           Lihat Selengkapnya
         </a>
       </div>
     </div>
   </div>
+
   <div class="w-full">
-    <div class="flex flex-wrap gap-5">
+    <div class="flex flex-col flex-wrap gap-4 md:gap-5 md:flex-row">
       @foreach ($testimonials as $testimonial)
         <div
-          class="flex min-w-[400px] flex-1 flex-col items-center justify-between rounded-lg border border-line bg-white">
-          <p class="p-8 text-[15px] leading-loose">
+          class="flex flex-col items-center justify-between rounded-lg border border-line bg-white w-full md:min-w-[400px] md:flex-1">
+          <p class="p-4 md:p-8 text-sm md:text-[15px] leading-loose">
             {{ $testimonial['text'] }}
           </p>
           <div
-            class="flex w-full flex-wrap items-center justify-between gap-4 rounded-b-lg bg-third p-6">
-            <img class="w-[50px] rounded-md" src="{{ $testimonial['imgSrc'] }}"
+            class="flex w-full flex-wrap items-center justify-between gap-3 md:gap-4 rounded-b-lg bg-third p-4 md:p-6">
+            <img class="w-[40px] md:w-[50px] rounded-md" src="{{ $testimonial['imgSrc'] }}"
               alt="Andi Wijaya">
-            <h2 class="mr-auto text-base font-medium text-secondary">
+            <h2 class="mr-auto text-sm md:text-base font-medium text-secondary">
               {{ $testimonial['name'] }}</h2>
             <a href="/testimonial"
-              class="rounded-lg border bg-white border-line px-4 py-3 text-sm font-medium transition hover:bg-primary hover:font-normal hover:text-white">Baca
+              class="rounded-lg border w-full md:w-auto text-center border-line bg-white px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium transition hover:bg-primary hover:font-normal hover:text-white">Baca
               Selengkapnya</a>
           </div>
         </div>

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-  <section class="min-h-svh bg-zinc-950">
-    <div class="relative flex w-full">
-      <div class="flex w-3/4 px-[calc(2.5vw+5px)]">
+  <section class="min-h-svh w-full bg-zinc-950">
+    <div class="relative flex w-full flex-col md:flex-row">
+      <div class="flex w-full md:w-3/4 px-[calc(2.5vw+5px)]">
         <div class="left-0 w-full overflow-hidden">
           <h2 class="bg-black/10 py-[calc(3.5vh+5px)] text-line"> {{$course->name}}
           </h2>
@@ -38,7 +38,7 @@
           </div>
         </div>
       </div>
-      <aside class="min-h-screen w-1/4 bg-third">
+      <aside class="min-h-screen w-full md:w-1/4 bg-third">
         @foreach ($course->syllabusses as $syllabus)
           <div class="dropdown border-b">
             <button

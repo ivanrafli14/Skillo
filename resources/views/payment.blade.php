@@ -46,17 +46,17 @@
 @endphp
 
 @section('content')
-@extends('layouts.app')
-    @if (session('error'))
-        <div id="alert"
-        class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-red-200 px-3 py-3.5 text-red-800 shadow-md">
-        <img src="{{ asset('assets/check.png') }}" alt="check" class="mr-4 w-5">
-        <p>{{ session('error') }}</p>
-        <div id="progress-bar"
-            class="absolute bottom-0 left-0 h-1 w-full rounded-b-lg bg-red-500">
-        </div>
-        </div>
-    @endif
+  @extends('layouts.app')
+  @if (session('error'))
+    <div id="alert"
+      class="fixed left-1/2 top-10 z-50 flex w-96 -translate-x-1/2 transform items-center rounded-lg bg-red-200 px-3 py-3.5 text-red-800 shadow-md">
+      <img src="{{ asset('assets/check.png') }}" alt="check" class="mr-4 w-5">
+      <p>{{ session('error') }}</p>
+      <div id="progress-bar"
+        class="absolute bottom-0 left-0 h-1 w-full rounded-b-lg bg-red-500">
+      </div>
+    </div>
+  @endif
   <section class="w-full bg-white">
     <div
       class="mx-auto flex max-w-[1080px] items-center justify-between bg-white px-[calc(3.5vw+5px)] py-4 shadow-custom">
@@ -104,7 +104,8 @@
               <img class="h-16 w-16" src="{{ asset('assets/johndoe.webp') }}"
                 alt="photo">
               <div>
-                <p class="pb-0.5 text-sm font-semibold text-secondary">{{ auth()->user()->name }}</p>
+                <p class="pb-0.5 text-sm font-semibold text-secondary">
+                  {{ auth()->user()->name }}</p>
                 </p>
                 <p class="text-sm opacity-60">{{ auth()->user()->email }}</p>
               </div>
@@ -146,12 +147,11 @@
             </div>
             {{-- <form action="{{ route('payment.store', ['id' => auth()->user()->id]) }}" method="POST">
                 @csrf --}}
-                <button type="submit"
-                        id="pay-button"
-                        class="w-full rounded-lg bg-primary py-2 text-white hover:bg-accent text-center block">
-                        Konfirmasi
-                {{-- </button> --}}
-            </form>
+            <button type="submit" id="pay-button"
+              class="block w-full rounded-lg bg-primary py-2 text-center text-white hover:bg-accent">
+              Konfirmasi
+              {{-- </button> --}}
+              </form>
           </div>
         </div>
         <div id="modal"
@@ -241,49 +241,46 @@
     let priceValue = 0;
     let monthly = false;
 
-    if(price.textContent === "Rp 199.000"){
+    if (price.textContent === "Rp 199.000") {
       priceValue = 199000;
       monthly = true;
     } else {
       priceValue = 2000000;
     }
-    payButton.addEventListener('click', function () {
-        fetch('/payment/midtrans/snap-token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            },
-            body: JSON.stringify({
-                amount: priceValue,
-                monthly: monthly,
-                user_id: '{{ auth()->user()->id }}',
-                name: '{{ auth()->user()->name }}',
-                email: '{{ auth()->user()->email }}'
-            })
+    payButton.addEventListener('click', function() {
+      fetch('/payment/midtrans/snap-token', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+          },
+          body: JSON.stringify({
+            amount: priceValue,
+            monthly: monthly,
+            user_id: '{{ auth()->user()->id }}',
+            name: '{{ auth()->user()->name }}',
+            email: '{{ auth()->user()->email }}'
+          })
         })
         .then(response => response.json())
-    .then(data => {
-            if (data) {
-                snap.pay(data, {
-                    onSuccess: function (result) {
-                        window.location.href = '{{ route('payment.success') }}';
-                    },
-                    onError: function (result) {
-                        window.location.href = '{{ route('payment')->with('error', 'Pembayaran gagal. Silahkan Coba Lagi') }}';
-                    },
-
-                });
-            } else {
-                alert('Gagal mendapatkan token pembayaran');
-            }
+        .then(data => {
+          if (data) {
+            snap.pay(data, {
+              onSuccess: function(result) {
+                window.location.href =
+                  '{{ route('payment.success') }}';
+              },
+            });
+          } else {
+            alert('Gagal mendapatkan token pembayaran');
+          }
         })
         .catch(error => console.error('Error:', error));
     });
-</script>
+  </script>
 
-<script>
-        const alert = document.getElementById("alert");
+  <script>
+    const alert = document.getElementById("alert");
     const progressBar = document.getElementById("progress-bar");
     const duration = 5000;
     progressBar.style.transition = `width ${duration}ms linear`;
@@ -295,5 +292,5 @@
       alert.style.opacity = "0";
       setTimeout(() => alert.remove(), 500);
     }, duration);
-</script>
+  </script>
 @endsection
